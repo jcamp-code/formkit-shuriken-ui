@@ -1,0 +1,6 @@
+dist
+pnpm-lock.yaml
+cache
+temp
+.nuxt
+formkit.config.tailwind.ts

@@ -1,0 +1,84 @@
+<script setup lang="ts">
+const props = defineProps({
+  context: Object,
+})
+
+const context = props.context
+const attrs = context?.attrs
+
+function events(e: Event, name1: string, name2?: string) {
+  function sendEvent(name: string) {
+    const clickHandlerProp = `on${name.charAt(0).toUpperCase()}${name.slice(1)}`
+
+    const handlerFunction = context!.attrs[clickHandlerProp] || context![clickHandlerProp]
+    if (handlerFunction && typeof handlerFunction === 'function') {
+      return handlerFunction(context?.node, e)
+    }
+  }
+  sendEvent(name1)
+  if (name2) sendEvent(name2)
+}
+
+function handleBlur(e: any) {
+  context?.handlers.blur(e.value)
+}
+function handleInput(e: any) {
+  context?.node.input(props.context?._value)
+}
+
+// this type is generated to show you all possible values
+type PropertiesData =
+  | {
+      value?: string | undefined
+      label?: string | undefined
+      sublabel?: string | undefined
+      media?: string | undefined
+      icon?: string | undefined
+    }
+  | undefined
+
+const properties = ref<PropertiesData>({
+  value: 'value',
+  label: 'label',
+})
+</script>
+
+<template>
+  <BaseListbox
+    :id="context?.id"
+    v-model.prop="context!._value"
+    :multiple="context?.multiple"
+    :items="context?.options || context?.attrs?.items"
+    :disabled="attrs._disabled ?? false"
+    :readonly="attrs._readonly ?? false"
+    :style="attrs.style"
+    :icon="context?.prefixIcon || context?.icon"
+    :shape="context?.shape"
+    :error="context?.state.validationVisible && !context?.state.valid"
+    :classes="context?.inputClasses"
+    :tabindex="attrs.tabindex"
+    :aria-label="attrs.ariaLabel"
+    :aria-labelledby="attrs.ariaLabelledby"
+    :placeholder="attrs.placeholder"
+    :properties="properties"
+    @update:model-value="handleInput"
+    @blur="handleBlur"
+  >
+    <template v-if="context?.prefixIcon || context?.icon" #icon>
+      <IconTw
+        :name="context?.prefixIcon || context?.icon"
+        class="nui-icon-box-inner"
+        @click="(e) => events(e, 'prefixIconClick')"
+      />
+    </template>
+  </BaseListbox>
+</template>
+
+<style>
+.nui-listbox.nui-has-icon.nui-listbox-md .nui-listbox-button {
+  padding-inline-start: 1rem;
+}
+.nui-listbox.nui-listbox-default .nui-listbox-button {
+  @apply dark:bg-opacity-75;
+}
+</style>
