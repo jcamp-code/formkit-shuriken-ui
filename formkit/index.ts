@@ -1,6 +1,6 @@
 import { generateClasses } from '@formkit/themes'
 import type { DefaultConfigOptions } from '@formkit/vue'
-import { createInput } from '@formkit/vue'
+import { createInput, mergeClasses, removeClasses, sendEvents } from './utils'
 
 import ShurikenFile from './vue/File.vue'
 
@@ -20,7 +20,6 @@ import './css/multistep.css'
 import 'v-calendar/dist/style.css'
 import './css/vcalendar.css'
 
-import { mergeClasses, removeClasses } from './utils'
 import { addClasses, replaceClasses } from './formkit.config.shuriken'
 
 // defineFormKitConfig() will not work here for some reason; it wipes the inputs
@@ -75,4 +74,11 @@ function addShurikenFormKitConfig(): DefaultConfigOptions {
   }
 }
 
-export { addShurikenFormKitConfig, replaceShurikenFormKitConfig, mergeClasses, removeClasses }
+export {
+  addShurikenFormKitConfig,
+  replaceShurikenFormKitConfig,
+  mergeClasses,
+  removeClasses,
+  createInput,
+  sendEvents,
+}

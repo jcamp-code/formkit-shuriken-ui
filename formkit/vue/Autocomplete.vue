@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import IconTw from '../components/IconTw.vue'
+import IconTw from '../../components/IconTw.vue'
 
 const props = defineProps({
   context: Object,

@@ -6,5 +6,14 @@ import { createInput } from '../utils'
  * @public
  */
 export const shautocomplete = createInput(Autocomplete, {
-  props: ['colorFocus', 'shape', 'icon', 'clearable', 'options', 'multiple', 'items'],
+  props: [
+    'colorFocus',
+    'shape',
+    'icon',
+    'clearable',
+    'options',
+    'multiple',
+    'items',
+    'inputClasses',
+  ],
 })

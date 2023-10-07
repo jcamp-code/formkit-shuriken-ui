@@ -6,5 +6,5 @@ import { createInput } from '../utils'
  * @public
  */
 export const shdropdown = createInput(Dropdown, {
-  props: ['colorFocus', 'shape', 'icon', 'clearable', 'options', 'multiple'],
+  props: ['colorFocus', 'shape', 'icon', 'clearable', 'options', 'multiple', 'inputClasses'],
 })

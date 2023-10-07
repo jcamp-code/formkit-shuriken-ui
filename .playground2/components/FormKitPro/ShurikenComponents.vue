@@ -61,7 +61,12 @@ const people = ref([
           <div class="divide-y divide-gray-200">
             <div class="grid grid-cols-12 gap-4 py-8">
               <div class="col-span-12">
-                <FormKit type="datepicker" name="date" label="Date" />
+                <FormKit
+                  type="datepicker"
+                  name="date"
+                  label="Date"
+                  suffix-icon="ph:calendar-blank-duotone"
+                />
                 <FormKit
                   type="dropdown"
                   name="dropdown"

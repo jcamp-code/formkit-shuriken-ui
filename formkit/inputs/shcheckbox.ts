@@ -5,7 +5,11 @@ import { createInput } from '../utils'
  * Input definition for a Shuriken UI Checkbox.
  * @public
  */
-export const shcheckbox = createInput(Checkbox, {
-  props: ['options', 'onValue', 'offValue', 'optionsLoader', 'shape', 'color'],
-  forceTypeProp: 'checkbox',
-})
+export const shcheckbox = createInput(
+  Checkbox,
+  {
+    props: ['options', 'trueValue', 'falseValue', 'optionsLoader', 'shape', 'color'],
+    forceTypeProp: 'checkbox',
+  },
+  false,
+)

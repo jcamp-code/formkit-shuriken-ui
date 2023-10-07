@@ -7,6 +7,6 @@ import { createInput } from '../utils'
  * @public
  */
 export const shtext = createInput(Text, {
-  props: ['colorFocus', 'shape', 'icon'],
+  props: ['colorFocus', 'shape', 'icon', 'inputClasses', 'suffixButton'],
   features: [casts],
 })

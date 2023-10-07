@@ -6,5 +6,5 @@ import Color from '../vue/Color.vue'
  * @public
  */
 export const shcolor = createInput(Color, {
-  props: ['colorFocus', 'shape', 'icon'],
+  props: ['colorFocus', 'shape', 'icon', 'inputClasses', 'suffixButton'],
 })

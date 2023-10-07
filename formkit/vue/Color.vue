@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import BaseTextInput from './BaseTextInput.vue'
+import { sendEvents } from '../utils'
+import BaseInputWithIcons from '../../components/BaseInputIcons.vue'
 
 const props = defineProps({
   context: Object,
@@ -26,13 +27,21 @@ function handleInput(e: any) {
 </script>
 
 <template>
-  <BaseTextInput
+  <BaseInputWithIcons
+    :id="context?.id"
     v-model="context!._value"
-    :context="context"
     type="color"
+    :icon="context?.prefixIcon || context?.icon"
+    :suffix-icon="context?.suffixIcon"
+    :shape="context?.shape"
+    :color-focus="context?.colorFocus"
+    :error="context?.state.validationVisible && !context?.state.valid"
     :classes="classes"
+    v-bind="context?.attrs"
     @input="handleInput"
     @blur="handleBlur"
+    @suffix-icon-click="(e) => sendEvents(e, context, 'suffixIconClick', 'actionClick')"
+    @prefix-icon-click="(e) => sendEvents(e, context, 'prefixIconClick')"
   >
-  </BaseTextInput>
+  </BaseInputWithIcons>
 </template>

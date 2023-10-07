@@ -6,5 +6,5 @@ import { createInput } from '../utils'
  * @public
  */
 export const shdatepicker = createInput(DatePicker, {
-  props: ['colorFocus', 'shape', 'icon'],
+  props: ['colorFocus', 'shape', 'icon', 'inputClasses'],
 })

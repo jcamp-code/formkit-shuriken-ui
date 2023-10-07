@@ -1,7 +1,7 @@
 {
   "name": "@jcamp/formkit-shuriken-ui",
   "type": "module",
-  "version": "0.1.0",
+  "version": "0.2.2",
   "author": "John Campion",
   "license": "MIT",
   "homepage": "https://github.com/jcamp-code/formkit-shuriken-ui",
@@ -10,7 +10,7 @@
   "exports": {
     ".": "./nuxt.config.ts",
     "./formkit": "./formkit/index.ts",
-    "./formkit/utils": "./formkit/utils/index.ts"
+    "./formkit/vue": "./formkit/vue/index.ts"
   },
   "files": [
     "components",
@@ -23,8 +23,7 @@
     "build": "nuxt build .playground",
     "generate": "nuxt generate .playground",
     "preview": "nuxt preview .playground",
-    "lint": "eslint .",
-    "postinstall": "nuxt prepare .playground"
+    "lint": "eslint ."
   },
   "dependencies": {
     "@formkit/addons": "^1.2.2",

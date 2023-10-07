@@ -63,12 +63,29 @@ const people = ref([
                   type="text"
                   label="Text"
                   name="text"
+                  color-focus
+                  placeholder="Some text placeholder"
+                  shape="curved"
+                  icon="ph:ticket-duotone"
+                  :suffix-icon="formModel.text && 'ph:x'"
+                  suffix-button
+                  :input-classes="{
+                    suffixButton: '!hidden group-focus-within:!flex',
+                    suffixIcon: 'group-focus-within:!text-primary-500',
+                  }"
+                  validation="required"
+                />
+
+                <FormKit
+                  type="text"
+                  label="Text"
+                  name="text"
                   placeholder="Some text placeholder"
                   shape="curved"
                   icon="ph:ticket-duotone"
                   :input-classes="{
-                    input: '!h-11 !ps-11',
-                    icon: '!h-11 !w-11',
+                    suffixButton: ' group-focus-within:!flex',
+                    suffixIcon: 'group-focus-within:!text-primary-500',
                   }"
                   validation="required"
                 />

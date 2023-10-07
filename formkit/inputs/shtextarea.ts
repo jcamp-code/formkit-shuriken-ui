@@ -6,5 +6,5 @@ import { createInput } from '../utils'
  * @public
  */
 export const shtextarea = createInput(Textarea, {
-  props: ['colorFocus', 'shape', 'autogrow', 'addon', 'resize'],
+  props: ['colorFocus', 'shape', 'autogrow', 'addon', 'resize', 'inputClasses'],
 })
