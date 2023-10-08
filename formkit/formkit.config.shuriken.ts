@@ -105,7 +105,8 @@ const shurikenUpdates = {
   color: { input: 'appearance-none p-2 mr-2' },
   // pro input
   colorpicker: {
-    inner: 'focus-within:ring-primary-500 dark:focus-within:ring-primary-500',
+    inner:
+      'bg-white dark:bg-muted-900/75 focus-within:ring-primary-500 dark:focus-within:ring-primary-500',
     panel: `
       dark:bg-muted-800
       border-muted-300
