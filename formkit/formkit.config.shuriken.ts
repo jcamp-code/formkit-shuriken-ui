@@ -107,10 +107,11 @@ const shurikenUpdates = {
   colorpicker: {
     inner: 'focus-within:ring-primary-500 dark:focus-within:ring-primary-500',
     panel: `
-      dark:bg-muted-700
-      border-muted-400
+      dark:bg-muted-800
+      border-muted-300
       dark:border-muted-700
-      border-2
+      dark:border
+      border
       mt-1
     `,
     fieldGroup: `

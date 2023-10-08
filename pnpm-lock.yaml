@@ -21,8 +21,8 @@ dependencies:
     specifier: ^1.2.2
     version: 1.2.2(tailwindcss@3.3.3)
   '@jcamp/shuriken-ui-nuxt':
-    specifier: ^1.3.1
-    version: 1.3.1(nuxt@3.7.4)(postcss@8.4.31)(vue@3.3.4)(webpack@5.88.2)
+    specifier: ^1.3.2
+    version: 1.3.2(nuxt@3.7.4)(postcss@8.4.31)(vue@3.3.4)(webpack@5.88.2)
   '@popperjs/core':
     specifier: ^2.11.8
     version: 2.11.8
@@ -1255,8 +1255,8 @@ packages:
       - typescript
     dev: true
 
-  /@jcamp/shuriken-ui-nuxt@1.3.1(nuxt@3.7.4)(postcss@8.4.31)(vue@3.3.4)(webpack@5.88.2):
-    resolution: {integrity: sha512-2NUEmTSsvOOtqTkEq1KCgqOZ+Y8REwfrmGtI5YUuut6bM2fQYAsmCzu5cgCihxDvvVLnOdsNVpyLR6emEk0OZA==}
+  /@jcamp/shuriken-ui-nuxt@1.3.2(nuxt@3.7.4)(postcss@8.4.31)(vue@3.3.4)(webpack@5.88.2):
+    resolution: {integrity: sha512-hRV10BHQJjVU/yv4wDpfC8DfUdfjM/D6zrYn5dvsGhFVCDawU1EZM1fg2Visc8FA3P/LV9TO8ndxhtjnvkU3vA==}
     dependencies:
       '@headlessui-float/vue': 0.11.4(vue@3.3.4)
       '@headlessui/vue': 1.7.16(vue@3.3.4)
