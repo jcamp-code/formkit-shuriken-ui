@@ -61,3 +61,9 @@ function handleBlur(e: any) {
     </template>
   </BaseAutocomplete>
 </template>
+
+<style>
+.nui-autocomplete.nui-autocomplete-default .nui-autocomplete-input {
+  @apply dark:group-focus-within:border-primary-500 group-focus-within:border-primary-500;
+}
+</style>

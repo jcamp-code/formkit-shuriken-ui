@@ -81,4 +81,8 @@ const properties = ref<PropertiesData>({
 .nui-listbox.nui-listbox-default .nui-listbox-button {
   @apply dark:bg-opacity-75;
 }
+
+.nui-listbox.nui-listbox-default .nui-listbox-button {
+  @apply dark:group-focus-within:border-primary-500 group-focus-within:border-primary-500;
+}
 </style>

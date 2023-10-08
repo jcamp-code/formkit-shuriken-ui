@@ -21,6 +21,7 @@ function handleInput(e: any) {
     :id="context?.id"
     v-model="context!._value"
     type="textarea"
+    :color-focus="context?.colorFocus ?? true"
     :rows="context?.rows"
     :shape="context?.shape"
     :error="context?.state.validationVisible && !context?.state.valid"

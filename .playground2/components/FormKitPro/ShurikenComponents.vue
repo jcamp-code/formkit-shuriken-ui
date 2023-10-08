@@ -72,6 +72,7 @@ const people = ref([
                   name="dropdown"
                   label="Dropdown"
                   shape="curved"
+                  color-focus
                   placeholder="pick a framework"
                   :items="frameworks"
                   :input-classes="{
@@ -81,16 +82,13 @@ const people = ref([
                 />
                 <FormKit
                   type="autocomplete"
-                  :items="people"
+                  :options="people"
                   label="Auto Complete"
-                  name="participants"
                   placeholder="Choose people..."
+                  color-focus
+                  multiple
                   shape="curved"
                   icon="ph:users-duotone"
-                  :input-classes="{
-                    input: '!h-11 !ps-11',
-                    icon: '!h-11',
-                  }"
                 />
                 <FormKit type="toggle" name="switch" label="Switch" sublabel="sub label" />
                 <FormKit

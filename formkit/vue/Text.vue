@@ -30,7 +30,7 @@ function handleInput(e: any) {
     :suffix-icon="context?.suffixIcon"
     :suffix-button="context?.suffixButton"
     :shape="context?.shape"
-    :color-focus="context?.colorFocus"
+    :color-focus="context?.colorFocus ?? true"
     :error="context?.state.validationVisible && !context?.state.valid"
     :input-classes="context?.inputClasses"
     v-bind="context?.attrs"
