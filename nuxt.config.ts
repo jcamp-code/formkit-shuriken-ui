@@ -38,14 +38,12 @@ export default defineNuxtConfig({
             raw: '(min-width: 768px) and (max-width: 1024px) and (orientation: landscape)',
           },
         },
-
-
         if (config.presets[0].theme?.extend?.screens) {
           delete config.presets[0].theme?.extend?.screens
         }
         */
         const index = config.presets[0].plugins.findIndex((element: any) => {
-          return element.config?.theme.aspectRatio
+          return element.config?.theme?.aspectRatio
         })
         if (index !== undefined && index > -1) {
           config.presets[0].plugins.splice(index, 1)
