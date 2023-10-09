@@ -1,5 +1,5 @@
-import Dropdown from '../vue/Dropdown.vue'
 import { createInput } from '../utils'
+import Dropdown from '../vue/Dropdown.vue'
 
 /**
  * Input definition for a Shuriken UI Dropdown (Listbox).

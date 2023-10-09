@@ -1,6 +1,7 @@
 import { options } from '@formkit/inputs'
-import Radio from '../vue/Radio.vue'
+
 import { createInput } from '../utils'
+import Radio from '../vue/Radio.vue'
 
 /**
  * Input definition for a Shuriken UI Raddio.

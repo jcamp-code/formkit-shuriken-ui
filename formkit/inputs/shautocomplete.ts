@@ -1,5 +1,5 @@
-import Autocomplete from '../vue/Autocomplete.vue'
 import { createInput } from '../utils'
+import Autocomplete from '../vue/Autocomplete.vue'
 
 /**
  * Input definition for a Shuriken UI Autocomplete.

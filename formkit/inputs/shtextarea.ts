@@ -1,5 +1,5 @@
-import Textarea from '../vue/Textarea.vue'
 import { createInput } from '../utils'
+import Textarea from '../vue/Textarea.vue'
 
 /**
  * Input definition for a Shuriken UI Textarea.

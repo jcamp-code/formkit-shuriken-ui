@@ -1,5 +1,5 @@
-import Switch from '../vue/Switch.vue'
 import { createInput } from '../utils'
+import Switch from '../vue/Switch.vue'
 
 /**
  * Input definition for a Shuriken UI Toggle (switch).

@@ -1,8 +1,4 @@
 import type { FormKitSchemaNode, FormKitTypeDefinition } from '@formkit/core'
-import { cloneAny } from '@formkit/utils'
-import type { FormKitSection } from '@formkit/inputs'
-import type { Component } from 'vue'
-import { markRaw } from 'vue'
 import {
   createSection,
   help,
@@ -14,7 +10,10 @@ import {
   prefix,
   suffix,
   wrapper,
+  type FormKitSection,
 } from '@formkit/inputs'
+import { cloneAny } from '@formkit/utils'
+import { markRaw, type Component } from 'vue'
 
 let totalCreated = 1
 
@@ -94,8 +93,7 @@ export function createInput(
   definition.schema = label
     ? createSchema(schema || 'Schema undefined')
     : noLabelSchema(schema || 'Schema undefined')
-  if (!definition.schemaMemoKey) {
-    definition.schemaMemoKey = `${Math.random()}`
-  }
+  if (!definition.schemaMemoKey) definition.schemaMemoKey = `${Math.random()}`
+
   return definition
 }

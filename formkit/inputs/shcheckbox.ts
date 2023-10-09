@@ -1,5 +1,5 @@
-import Checkbox from '../vue/Checkbox.vue'
 import { createInput } from '../utils'
+import Checkbox from '../vue/Checkbox.vue'
 
 /**
  * Input definition for a Shuriken UI Checkbox.

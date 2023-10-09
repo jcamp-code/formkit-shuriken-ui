@@ -1,5 +1,5 @@
-import DatePicker from '../vue/DatePicker.vue'
 import { createInput } from '../utils'
+import DatePicker from '../vue/DatePicker.vue'
 
 /**
  * Input definition for a Shuriken UI Datepicker.

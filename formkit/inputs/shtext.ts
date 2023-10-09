@@ -1,6 +1,7 @@
 import { casts } from '@formkit/inputs'
-import Text from '../vue/Text.vue'
+
 import { createInput } from '../utils'
+import Text from '../vue/Text.vue'
 
 /**
  * Input definition for a Shuriken UI Text.
