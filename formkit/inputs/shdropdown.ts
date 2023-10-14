@@ -6,5 +6,5 @@ import Dropdown from '../vue/Dropdown.vue'
  * @public
  */
 export const shdropdown = createInput(Dropdown, {
-  props: ['colorFocus', 'shape', 'icon', 'clearable', 'options', 'multiple', 'inputClasses'],
+  props: ['colorFocus', 'shape', 'icon', 'clearable', 'options', 'multiple', 'inputClasses', 'optionLabel', 'optionValue'],
 })
