@@ -37,9 +37,13 @@ type PropertiesData =
     }
   | undefined
 
+
+const optionValue = attrs['option-value'] ? attrs['option-value'] : null
+const optionLabel = attrs['option-label'] ? attrs['option-label'] : null
+
 const properties = ref<PropertiesData>({
-  value: 'value',
-  label: 'label',
+  value: optionValue ? optionValue : 'value',
+  label: optionLabel ? optionLabel : 'label',
 })
 </script>
 
