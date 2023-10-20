@@ -1,6 +1,7 @@
 import { twMerge } from 'tailwind-merge'
-import { mergeClasses, removeClasses } from './utils'
+
 import original from './formkit.config.tailwind'
+import { mergeClasses, removeClasses } from './utils'
 
 const shurikenRemoves = {
   global: {
@@ -179,6 +180,7 @@ const shurikenUpdates = {
     track: 'peer-checked:bg-primary-500',
   },
   'multi-step': {
+    outer: '$remove:group',
     steps: '$reset nui-card nui-card-rounded nui-card-white p-8',
     tab: `text-black dark:text-white`,
   },
@@ -208,8 +210,14 @@ const replaceClasses = mergeClasses(
 // need to get this to file and color picker only
 replaceClasses.file.inner = twMerge(replaceClasses['family:text'].inner, replaceClasses.file.inner)
 replaceClasses.file.input = twMerge(replaceClasses['family:text'].input, replaceClasses.file.input)
-replaceClasses.colorpicker.inner = twMerge(replaceClasses['family:text'].inner, replaceClasses.colorpicker.inner)
-replaceClasses.colorpicker.input = twMerge(replaceClasses['family:text'].input, replaceClasses.colorpicker.input)
+replaceClasses.colorpicker.inner = twMerge(
+  replaceClasses['family:text'].inner,
+  replaceClasses.colorpicker.inner,
+)
+replaceClasses.colorpicker.input = twMerge(
+  replaceClasses['family:text'].input,
+  replaceClasses.colorpicker.input,
+)
 // replaceClasses.file.input = replaceClasses['family:text'].input
 delete replaceClasses['family:text']
 
