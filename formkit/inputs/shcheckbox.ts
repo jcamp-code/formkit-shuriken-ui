@@ -10,4 +10,5 @@ export const shcheckbox = createInput(
   {
     props: ['options', 'trueValue', 'falseValue', 'optionsLoader', 'shape', 'color'],
   },
+  false
 )
