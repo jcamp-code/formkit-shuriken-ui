@@ -336,6 +336,7 @@ const people = ref([
         />
         <FormKit
           type="autocomplete"
+          :options="[]"
           :filter-items="filterItems"
           label="Movies through FormKit"
           :display-value="(item: any) => item.text"
