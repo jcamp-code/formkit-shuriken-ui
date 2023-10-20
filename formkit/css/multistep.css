@@ -25,7 +25,6 @@
 }
 
 .formkit-outer[data-type='multi-step'] > .formkit-wrapper {
-  max-width: 32em;
   box-shadow: var(--multistep-shadow);
   border-radius: var(--multistep-radius);
 }

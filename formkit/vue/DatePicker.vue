@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { DatePicker as vDatePicker } from 'v-calendar'
-import { sendEvents } from '../utils'
+
 import BaseInputIcons from '../../components/BaseInputIcons.vue'
+import { sendEvents } from '../utils'
 
 const props = defineProps({
   context: Object,
@@ -29,15 +30,14 @@ const inputDate = computed({
         :icon="context?.prefixIcon || context?.icon"
         :suffix-icon="context?.suffixIcon"
         :shape="context?.shape"
-        :color-focus="context?.colorFocus"
+        :color-focus="context?.colorFocus ?? true"
         :error="context?.state.validationVisible && !context?.state.valid"
         :classes="context?.inputClasses"
         v-bind="context?.attrs"
         v-on="inputEvents ?? {}"
         @suffix-icon-click="(e) => sendEvents(e, context, 'suffixIconClick', 'actionClick')"
         @prefix-icon-click="(e) => sendEvents(e, context, 'prefixIconClick')"
-      >
-      </BaseInputIcons>
+      />
     </template>
   </vDatePicker>
 </template>

@@ -1,12 +1,14 @@
 import { twMerge } from 'tailwind-merge'
-import { mergeClasses, removeClasses } from './utils'
+
 import original from './formkit.config.tailwind'
+import { mergeClasses, removeClasses } from './utils'
 
 const shurikenRemoves = {
   global: {
     inner: 'formkit-disabled:bg-gray-200',
     label: '*',
     prefixIcon: '*',
+    outer: 'mb-4',
   },
   'family:box': {
     decorator: '*',
@@ -31,11 +33,12 @@ const shurikenUpdates = {
     fieldset: 'border-muted-300 dark:border-muted-700',
     help: 'text-muted-400',
     inner: 'relative formkit-disabled:opacity-75 formkit-disabled:bg-inherit',
-    outer: 'group',
+    wrapper: 'mb-5',
+    outer: 'group mb-1',
     label: 'nui-label w-full pb-1 text-[0.825rem]',
     legend: 'text-sm text-muted-400 font-normal',
-    message:
-      'text-danger-600 mt-1 block font-sans text-[0.65rem] font-medium leading-none bg-transparent',
+    messages: '-mt-4',
+    message: 'text-danger-600 mt-1 block font-sans text-xs font-medium leading-none bg-transparent',
     prefixIcon:
       'text-muted-400 w-10 flex items-center justify-center self-stretch grow-0 shrink-0 [&>svg]:w-full [&>svg]:max-w-[1.15em] [&>svg]:max-h-[1.15em] [&>svg]:m-auto',
     suffixIcon:
@@ -179,6 +182,7 @@ const shurikenUpdates = {
     track: 'peer-checked:bg-primary-500',
   },
   'multi-step': {
+    outer: '$remove:group',
     steps: '$reset nui-card nui-card-rounded nui-card-white p-8',
     tab: `text-black dark:text-white`,
   },
@@ -208,8 +212,14 @@ const replaceClasses = mergeClasses(
 // need to get this to file and color picker only
 replaceClasses.file.inner = twMerge(replaceClasses['family:text'].inner, replaceClasses.file.inner)
 replaceClasses.file.input = twMerge(replaceClasses['family:text'].input, replaceClasses.file.input)
-replaceClasses.colorpicker.inner = twMerge(replaceClasses['family:text'].inner, replaceClasses.colorpicker.inner)
-replaceClasses.colorpicker.input = twMerge(replaceClasses['family:text'].input, replaceClasses.colorpicker.input)
+replaceClasses.colorpicker.inner = twMerge(
+  replaceClasses['family:text'].inner,
+  replaceClasses.colorpicker.inner,
+)
+replaceClasses.colorpicker.input = twMerge(
+  replaceClasses['family:text'].input,
+  replaceClasses.colorpicker.input,
+)
 // replaceClasses.file.input = replaceClasses['family:text'].input
 delete replaceClasses['family:text']
 
