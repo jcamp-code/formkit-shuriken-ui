@@ -1,4 +1,32 @@
 <script setup lang="ts">
+async function searchMovies(search: string) {
+  if (!search) return []
+  const res = await fetch(
+    `https://api.themoviedb.org/3/search/movie?query=${
+      search || ''
+    }&api_key=f48bcc9ed9cbce41f6c28ea181b67e14&language=en-US&page=1&include_adult=false`,
+  )
+  if (res.ok) {
+    const data = await res.json()
+    // Iterating over results to set the required
+    // `label` and `value` keys.
+    return data.results.map((result: any) => {
+      return {
+        id: result.id,
+        text: result.title,
+      }
+    })
+  }
+  // If the request fails, we return an empty array.
+  return []
+}
+function filterItems(query?: string) {
+  if (!query) return []
+
+  // search by name or text
+  return searchMovies(query)
+}
+
 const formModel = ref({
   text: '',
   textarea: '',
@@ -23,6 +51,12 @@ const dates = ref({
   start: new Date(),
   end: new Date(),
 })
+const frameworks = [
+  { label: 'React', value: 'react' },
+  { label: 'Vue', value: 'vue' },
+  { label: 'Angular', value: 'angular' },
+  { label: 'Svelte', value: 'svelte' },
+]
 
 const masks = ref({
   input: 'YYYY-MM-DD',
@@ -201,16 +235,16 @@ const people = ref([
                   }"
                 />
                 <datalist id="eventColors">
-                  <option value="#84cc16"></option>
-                  <option value="#22c55e"></option>
-                  <option value="#0ea5e9"></option>
-                  <option value="#6366f1"></option>
-                  <option value="#8b5cf6"></option>
-                  <option value="#d946ef"></option>
-                  <option value="#f43f5e"></option>
-                  <option value="#facc15"></option>
-                  <option value="#fb923c"></option>
-                  <option value="#9ca3af"></option>
+                  <option value="#84cc16" />
+                  <option value="#22c55e" />
+                  <option value="#0ea5e9" />
+                  <option value="#6366f1" />
+                  <option value="#8b5cf6" />
+                  <option value="#d946ef" />
+                  <option value="#f43f5e" />
+                  <option value="#facc15" />
+                  <option value="#fb923c" />
+                  <option value="#9ca3af" />
                 </datalist>
               </div>
               <div class="col-span-12 sm:col-span-6">
@@ -228,11 +262,11 @@ const people = ref([
                   }"
                 />
                 <datalist id="eventCategories">
-                  <option value="Chrome"></option>
-                  <option value="Firefox"></option>
-                  <option value="Opera"></option>
-                  <option value="Safari"></option>
-                  <option value="Microsoft Edge"></option>
+                  <option value="Chrome" />
+                  <option value="Firefox" />
+                  <option value="Opera" />
+                  <option value="Safari" />
+                  <option value="Microsoft Edge" />
                 </datalist>
               </div>
               <div class="col-span-12 sm:col-span-6">
@@ -287,9 +321,48 @@ const people = ref([
         </ClientOnly>
       </BaseCard>
     </div>
-    <FormKit type="multi-step" tab-style="progress">
+    <FormKit type="multi-step">
       <FormKit type="step" name="stepOne">
         <FormKit type="text" label="Name" validation="required" />
+        <FormKit type="text" label="Name" validation="required" />
+        <FormKit type="textarea" label="Your story" validation="required" />
+        <BaseAutocomplete
+          :filter-items="filterItems"
+          label="Movies through Autocomplete Directly"
+          :display-value="(item) => item.text"
+          placeholder="Choose movie..."
+          icon="ph:user-duotone"
+          :filter-debounce="300"
+        />
+        <FormKit
+          type="autocomplete"
+          :filter-items="filterItems"
+          label="Movies through FormKit"
+          :display-value="(item: any) => item.text"
+          placeholder="Choose movie..."
+          icon="ph:user-duotone"
+          :filter-debounce="300"
+        />
+        <FormKit
+          type="dropdown"
+          name="dropdown"
+          label="Dropdown"
+          shape="curved"
+          color-focus
+          placeholder="pick a framework"
+          :items="frameworks"
+          :input-classes="{
+            input: '!h-11 !ps-11',
+            icon: '!h-11',
+          }"
+        />
+
+        <FormKit
+          type="datepicker"
+          name="date"
+          label="Date"
+          suffix-icon="ph:calendar-blank-duotone"
+        />
       </FormKit>
       <FormKit type="step" name="stepTwo">
         <FormKit type="textarea" label="Your story" validation="required" />

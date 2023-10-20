@@ -15,5 +15,8 @@ export const shautocomplete = createInput(Autocomplete, {
     'multiple',
     'items',
     'inputClasses',
+    'filterItems',
+    'displayValue',
+    'filterDebounce',
   ],
 })

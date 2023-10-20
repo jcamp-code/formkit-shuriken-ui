@@ -11,9 +11,8 @@ function events(e: Event, name1: string, name2?: string) {
     const clickHandlerProp = `on${name.charAt(0).toUpperCase()}${name.slice(1)}`
 
     const handlerFunction = context!.attrs[clickHandlerProp] || context![clickHandlerProp]
-    if (handlerFunction && typeof handlerFunction === 'function') {
+    if (handlerFunction && typeof handlerFunction === 'function')
       return handlerFunction(context?.node, e)
-    }
   }
   sendEvent(name1)
   if (name2) sendEvent(name2)
@@ -37,13 +36,12 @@ type PropertiesData =
     }
   | undefined
 
-
 const optionValue = attrs['option-value'] ? attrs['option-value'] : null
 const optionLabel = attrs['option-label'] ? attrs['option-label'] : null
 
 const properties = ref<PropertiesData>({
-  value: optionValue ? optionValue : 'value',
-  label: optionLabel ? optionLabel : 'label',
+  value: optionValue || 'value',
+  label: optionLabel || 'label',
 })
 </script>
 

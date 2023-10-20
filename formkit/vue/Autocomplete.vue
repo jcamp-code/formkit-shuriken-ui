@@ -13,9 +13,8 @@ function events(e: Event, name1: string, name2?: string) {
     const clickHandlerProp = `on${name.charAt(0).toUpperCase()}${name.slice(1)}`
 
     const handlerFunction = context!.attrs[clickHandlerProp] || context![clickHandlerProp]
-    if (handlerFunction && typeof handlerFunction === 'function') {
+    if (handlerFunction && typeof handlerFunction === 'function')
       return handlerFunction(context?.node, e)
-    }
   }
   sendEvent(name1)
   if (name2) sendEvent(name2)
@@ -35,7 +34,8 @@ function handleBlur(e: any) {
     :id="context?.id"
     v-model="context!._value"
     :multiple="context?.multiple"
-    :items="context?.options || context?.attrs?.items"
+    :items="context?.options || context?.items"
+    :filter-items="context?.filterItems"
     :disabled="attrs._disabled ?? false"
     :readonly="attrs._readonly ?? false"
     :style="attrs.style"
@@ -46,6 +46,8 @@ function handleBlur(e: any) {
     :tabindex="attrs.tabindex"
     :aria-label="attrs.ariaLabel"
     :aria-labelledby="attrs.ariaLabelledby"
+    :display-value="context?.displayValue"
+    :filter-debounce="context?.filterDebounce"
     :placeholder="attrs.placeholder"
     dropdown
     :clearable="context?.clearable"
