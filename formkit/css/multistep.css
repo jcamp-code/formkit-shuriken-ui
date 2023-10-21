@@ -131,7 +131,7 @@
 
 .formkit-outer[data-type='multi-step'] > [data-tab-style='progress'] > .formkit-tabs {
   margin-bottom: 2em;
-  margin-top: 2em;
+  margin-top: 0.5em;
   justify-content: space-around;
   overflow: visible;
 }
