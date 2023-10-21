@@ -321,7 +321,7 @@ const people = ref([
         </ClientOnly>
       </BaseCard>
     </div>
-    <FormKit type="multi-step">
+    <FormKit type="multi-step" tab-style="progress">
       <FormKit type="step" name="stepOne">
         <FormKit type="text" label="Name" validation="required" />
         <FormKit type="text" label="Name" validation="required" />

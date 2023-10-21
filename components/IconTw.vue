@@ -12,7 +12,7 @@ const useNuxtIcon = iconName?.match(':') ?? false
 </script>
 
 <template>
-  <span v-if="useTwIcon" :class="iconName" class="iconTw"></span>
-  <Icon v-else-if="useNuxtIcon" :name="iconName!"></Icon>
-  <FormKitIcon v-else-if="iconName" :icon="iconName"></FormKitIcon>
+  <span v-if="useTwIcon" :class="iconName"></span>
+  <Icon v-else-if="useNuxtIcon" :name="iconName!" />
+  <FormKitIcon v-else-if="iconName" :icon="iconName" />
 </template>

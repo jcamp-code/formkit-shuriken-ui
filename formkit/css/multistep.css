@@ -260,7 +260,3 @@
   -moz-user-select: none;
   user-select: none;
 }
-
-.iconTw {
-  @apply h-[1.15rem] w-[1.15rem];
-}
