@@ -57,6 +57,14 @@ const frameworks = [
   { label: 'Angular', value: 'angular' },
   { label: 'Svelte', value: 'svelte' },
 ]
+const frameworks3 = [
+  { name: 'React', valueKey: 'react' },
+  { name: 'Vue', text: 'ghghg', valueKey: 'vue' },
+  { name: 'Angular', text: '', valueKey: 'angular' },
+  { name: 'Svelte', text: '', valueKey: 'svelte' },
+]
+
+const frameworks2 = ref(['Javascript', 'Nuxt', 'Vue.js', 'React.js', 'Angular', 'Alpine.js'])
 
 const masks = ref({
   input: 'YYYY-MM-DD',
@@ -70,6 +78,9 @@ const people = ref([
   'Hermann Schmidt',
   'Chloe Varley',
 ])
+
+const selectedMovie = ref()
+const selectedFramework = ref('angular')
 </script>
 
 <template>
@@ -335,28 +346,29 @@ const people = ref([
           :filter-debounce="300"
         />
         <FormKit
+          v-model="selectedMovie"
           type="autocomplete"
-          :options="[]"
           :filter-items="filterItems"
           label="Movies through FormKit"
           :display-value="(item: any) => item.text"
           placeholder="Choose movie..."
           icon="ph:user-duotone"
           :filter-debounce="300"
+          by="id"
         />
+        {{ selectedMovie }}
         <FormKit
-          type="dropdown"
-          name="dropdown"
+          type="autocomplete"
+          v-model="selectedFramework"
           label="Dropdown"
           shape="curved"
           color-focus
+          clearable
+          allow-custom
           placeholder="pick a framework"
-          :items="frameworks"
-          :input-classes="{
-            input: '!h-11 !ps-11',
-            icon: '!h-11',
-          }"
+          :items="frameworks2"
         />
+        {{ selectedFramework }}
 
         <FormKit
           type="datepicker"

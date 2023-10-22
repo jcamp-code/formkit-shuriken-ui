@@ -36,12 +36,11 @@ type PropertiesData =
     }
   | undefined
 
-const optionValue = attrs['option-value'] ? attrs['option-value'] : null
-const optionLabel = attrs['option-label'] ? attrs['option-label'] : null
-
-const properties = ref<PropertiesData>({
-  value: optionValue || 'value',
-  label: optionLabel || 'label',
+const properties = computed(() => {
+  return {
+    value: context?.optionValue ?? 'value',
+    label: context?.optionLabel ?? 'label',
+  }
 })
 </script>
 
@@ -76,7 +75,7 @@ const properties = ref<PropertiesData>({
   </BaseListbox>
 </template>
 
-<style>
+<style lang="postcss">
 .nui-listbox.nui-has-icon.nui-listbox-md .nui-listbox-button {
   padding-inline-start: 1rem;
 }

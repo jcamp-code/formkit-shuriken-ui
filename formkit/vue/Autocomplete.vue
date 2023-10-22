@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import IconTw from '../../components/IconTw.vue'
+import BaseAutocomplete from './BaseAutocomplete.vue'
 
 const props = defineProps({
   context: Object,
@@ -34,7 +35,7 @@ function handleBlur(e: any) {
     :id="context?.id"
     v-model="context!._value"
     :multiple="context?.multiple"
-    :items="context?.options || context?.items"
+    :items="context?.options || attrs?.items"
     :filter-items="context?.filterItems"
     :disabled="attrs._disabled ?? false"
     :readonly="attrs._readonly ?? false"
@@ -50,6 +51,7 @@ function handleBlur(e: any) {
     :filter-debounce="context?.filterDebounce"
     :placeholder="attrs.placeholder"
     dropdown
+    :allow-custom="context?.allowCustom ?? false"
     :clearable="context?.clearable"
     @update:model-value="handleChange"
     @blur="handleBlur"
@@ -64,7 +66,7 @@ function handleBlur(e: any) {
   </BaseAutocomplete>
 </template>
 
-<style>
+<style lang="postcss">
 .nui-autocomplete.nui-autocomplete-default .nui-autocomplete-input {
   @apply dark:group-focus-within:border-primary-500 group-focus-within:border-primary-500;
 }

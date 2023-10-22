@@ -13,10 +13,10 @@ export const shautocomplete = createInput(Autocomplete, {
     'clearable',
     'options',
     'multiple',
-    'items',
     'inputClasses',
     'filterItems',
     'displayValue',
     'filterDebounce',
+    'allowCustom',
   ],
 })
