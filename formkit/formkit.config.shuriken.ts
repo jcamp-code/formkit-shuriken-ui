@@ -64,9 +64,11 @@ const shurikenUpdates = {
     prefixIcon: '$remove:h-11 $remove:-ml-3 h-10',
     input:
       'border-none text-sm text-muted-600 placeholder:text-muted-300 dark:!text-muted-200 dark:placeholder:text-muted-500 focus:shadow-outline',
-    dropdownWrapper: ` -z-10 nui-slimscroll max-h-[265px] w-full overflow-auto py-1 text-base outline-none sm:text-sm rounded-md bg-white dark:bg-muted-800
-      border-primary-500 border`,
-    listbox: 'bg-white dark:bg-muted-800 shadow-none',
+    dropdownWrapper: ` -z-10 nui-slimscroll max-h-[265px] w-full overflow-auto py-1 text-base sm:text-sm rounded-md shadow-none
+      bg-transparent
+      peer-aria-expanded:bg-white
+      peer-aria-expanded:dark:bg-muted-800`,
+    listbox: 'bg-white dark:bg-muted-800 shadow-lg',
     listitem: `text-muted-800 rounded-md m-2 dark:text-white hover:bg-muted-100 hover:dark:bg-muted-700 data-[is-active="true"]:bg-muted-100 data-[is-active="true"]:dark:bg-muted-700 data-[is-active="true"]:aria-selected:bg-muted-100
       aria-selected:font-semibold
       aria-selected:dark:!text-muted-100 aria-selected:!text-muted-800
@@ -186,8 +188,10 @@ const shurikenUpdates = {
     tab: `text-black dark:text-white`,
   },
   taglist: {
-    inner: 'focus-within:ring-primary-500 dark:focus-within:ring-primary-500',
+    inner:
+      'focus-within:ring-primary-500 dark:focus-within:ring-primary-500 bg-white dark:bg-muted-900/75',
     input: '$remove:w-full',
+    dropdownWrapper: '$remove:my-2 my-1',
     removeSelection: 'dark:text-white',
     tag: 'bg-muted-200 dark:bg-muted-700',
     tags: 'py-0.5',
