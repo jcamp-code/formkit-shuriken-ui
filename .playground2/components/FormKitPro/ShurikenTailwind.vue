@@ -35,6 +35,8 @@ const people = ref([
   'Hermann Schmidt',
   'Chloe Varley',
 ])
+
+const flavors = ['Chocolate', 'Vanilla', 'Strawberry']
 </script>
 
 <template>
@@ -59,6 +61,23 @@ const people = ref([
             <div class="grid grid-cols-12 gap-4 py-8">
               <div class="col-span-12">
                 <FormKit type="colorpicker" />
+                <FormKit
+                  type="taglist"
+                  name="flavors"
+                  label="Select or add a flavor"
+                  :options="flavors"
+                  :value="['Chocolate', 'Vanilla']"
+                  :allow-new-values="true"
+                />
+                <FormKit
+                  type="taglist"
+                  name="flavors"
+                  label="Select or add a flavor"
+                  :value="['Chocolate', 'Vanilla']"
+                  :allow-new-values="true"
+                  listbox-button-class="hidden"
+                  dropdown-wrapper-class="hidden"
+                />
                 <FormKit
                   type="datepicker"
                   name="date"

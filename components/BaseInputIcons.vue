@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { twMerge } from 'tailwind-merge'
+
 import IconTw from './IconTw.vue'
 
 const props = defineProps<{
@@ -46,6 +47,7 @@ function emitSuffixClick(e: Event) {
     <template v-if="props.suffixIcon" #action>
       <Component
         :is="props.suffixButton ? 'button' : 'div'"
+        tabindex="-1"
         :class="suffixButtonClass"
         @click.prevent="emitSuffixClick"
       >

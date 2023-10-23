@@ -58,18 +58,15 @@ const shurikenUpdates = {
   },
 
   'family:dropdown': {
-    inner: `h-10 nui-focus flex ring-1 focus-within:ring-1 focus-within:ring-muted-300 dark:focus-within:ring-muted-700 focus-within:outline-offset-[3px] dark:bg-muted-900/75 ring-muted-300 dark:ring-muted-700 text-muted-600 dark:text-muted-200 [&>label:first-child]:focus-within:text-primary-600 rounded-md mb-1 [&>span:first-child]:focus-within:text-primary-500
+    inner: `nui-focus ring-1 focus-within:ring-1 focus-within:ring-muted-300 dark:focus-within:ring-muted-700 focus-within:outline-offset-[3px] dark:bg-muted-900/75 ring-muted-300 dark:ring-muted-700 text-muted-600 dark:text-muted-200 [&>label:first-child]:focus-within:text-primary-600 rounded-md mb-1 [&>span:first-child]:focus-within:text-primary-500
       group-data-[invalid=true]:[&>span:first-child]:!text-danger-500 group-data-[invalid=true]:!ring-danger-500
       group-data-[errors=true]:[&>span:first-child]:!text-danger-500 group-data-[errors=true]:!ring-danger-500`,
     prefixIcon: '$remove:h-11 $remove:-ml-3 h-10',
     input:
-      'block h-10 border-none text-sm text-muted-600 placeholder:text-muted-300 dark:!text-muted-200 dark:placeholder:text-muted-500 focus:shadow-outline',
-    dropdownWrapper: ` -z-10 nui-slimscroll max-h-[265px] w-full overflow-auto py-1 text-base outline-none sm:text-sm rounded-md
-      peer-aria-expanded:border peer-aria-expanded:border-muted-200 peer-aria-expanded:dark:border-muted-700
-      bg-transparent
-      peer-aria-expanded:bg-white
-      peer-aria-expanded:dark:bg-muted-800`,
-    listbox: 'dark:bg-muted-800 shadow-none',
+      'border-none text-sm text-muted-600 placeholder:text-muted-300 dark:!text-muted-200 dark:placeholder:text-muted-500 focus:shadow-outline',
+    dropdownWrapper: ` -z-10 nui-slimscroll max-h-[265px] w-full overflow-auto py-1 text-base outline-none sm:text-sm rounded-md bg-white dark:bg-muted-800
+      border-primary-500 border`,
+    listbox: 'bg-white dark:bg-muted-800 shadow-none',
     listitem: `text-muted-800 rounded-md m-2 dark:text-white hover:bg-muted-100 hover:dark:bg-muted-700 data-[is-active="true"]:bg-muted-100 data-[is-active="true"]:dark:bg-muted-700 data-[is-active="true"]:aria-selected:bg-muted-100
       aria-selected:font-semibold
       aria-selected:dark:!text-muted-100 aria-selected:!text-muted-800
@@ -109,7 +106,9 @@ const shurikenUpdates = {
   // pro input
   colorpicker: {
     inner:
-      'bg-white dark:bg-muted-900/75 focus-within:ring-primary-500 dark:focus-within:ring-primary-500',
+      '$remove:h-10 bg-white dark:bg-muted-900/75 focus-within:ring-primary-500 dark:focus-within:ring-primary-500',
+    swatchPreview: 'p-2',
+
     panel: `
       dark:bg-muted-800
       border-muted-300
@@ -186,12 +185,22 @@ const shurikenUpdates = {
     steps: '$reset nui-card nui-card-rounded nui-card-white p-8',
     tab: `text-black dark:text-white`,
   },
+  taglist: {
+    inner: 'focus-within:ring-primary-500 dark:focus-within:ring-primary-500',
+    input: '$remove:w-full',
+    removeSelection: 'dark:text-white',
+    tag: 'bg-muted-200 dark:bg-muted-700',
+    tags: 'py-0.5',
+    tagWrapper: 'bg-transparent',
+    selectedIcon: 'text-primary-500',
+  },
 }
 
 const replaceOriginal = {
   global: { ...original.global },
   'family:button': { ...original['family:button'] },
   'family:text': { ...original['family:text'] },
+  'family:dropdown': { ...original['family:dropdown'] },
   file: { ...original.file },
   range: { ...original.range },
   colorpicker: { ...original.colorpicker },
@@ -220,7 +229,9 @@ replaceClasses.colorpicker.input = twMerge(
   replaceClasses['family:text'].input,
   replaceClasses.colorpicker.input,
 )
+
 // replaceClasses.file.input = replaceClasses['family:text'].input
 delete replaceClasses['family:text']
+// delete replaceClasses['family:dropdown']
 
 export { addClasses, replaceClasses, shurikenRemoves, shurikenUpdates }
