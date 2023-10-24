@@ -2,6 +2,8 @@
 import VueDatePicker from '@vuepic/vue-datepicker'
 import { format } from 'date-fns'
 
+import { sendEvents } from '../utils'
+
 const props = defineProps({
   context: Object,
 })
@@ -57,7 +59,6 @@ const datePickerRef = ref()
         ref="textRef"
         v-model="formatDate"
         type="text"
-        :icon="context?.prefixIcon || context?.icon"
         :shape="context?.shape"
         :color-focus="context?.colorFocus ?? true"
         :error="context?.state.validationVisible && !context?.state.valid"
@@ -68,6 +69,14 @@ const datePickerRef = ref()
         @input="onInput"
         @blur="onBlur"
       >
+        <template v-if="context?.prefixIcon || context?.icon" #icon>
+          <IconTw
+            :name="context?.prefixIcon || context?.icon"
+            class="nui-input-icon-inner"
+            :class="context?.inputClasses?.icon"
+            @click="(e) => sendEvents(e, context, 'prefixIconClick')"
+          />
+        </template>
         <template #action>
           <div
             tabindex="-1"
