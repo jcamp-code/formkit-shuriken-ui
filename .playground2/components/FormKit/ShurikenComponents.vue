@@ -81,6 +81,7 @@ const people = ref([
 
 const selectedMovie = ref()
 const selectedFramework = ref('angular')
+const newDate = ref()
 </script>
 
 <template>
@@ -371,11 +372,13 @@ const selectedFramework = ref('angular')
         {{ selectedFramework }}
 
         <FormKit
+          v-model="newDate"
           type="datepicker"
           name="date"
           label="Date"
           suffix-icon="ph:calendar-blank-duotone"
         />
+        <pre>{{ newDate }}</pre>
       </FormKit>
       <FormKit type="step" name="stepTwo">
         <FormKit type="textarea" label="Your story" validation="required" />

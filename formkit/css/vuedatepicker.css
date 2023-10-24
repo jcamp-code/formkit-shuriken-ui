@@ -1,0 +1,86 @@
+/* https://vue3datepicker.com/customization/theming/
+*/
+
+.dp__menu {
+  @apply font-sans text-sm dark:font-light;
+}
+.dp__btn {
+  @apply nui-focus rounded;
+}
+.dp__btn .dp--arrow-btn-nav {
+  @apply nui-focus rounded;
+}
+.dp__inner_nav {
+  @apply rounded;
+}
+.dp__overlay_cell {
+  @apply text-muted-500 dark:text-muted-400 hover:text-muted-500 dark:hover:text-white;
+}
+
+.dp__month_year_row {
+  @apply gap-x-2;
+}
+.dp__month_year_wrap {
+  @apply gap-x-3;
+}
+.dp--year-select,
+.dp__month_year_select {
+  @apply hover:text-muted-500 h-8 text-[0.925rem] text-black dark:text-white;
+}
+
+.dp__calendar_header {
+  @apply text-muted-500 dark:text-muted-500 font-normal;
+}
+.dp__calendar_header_separator {
+  @apply hidden;
+}
+.dp__calendar_item {
+  @apply [&>div]:focus:outline-muted-300 [&>div]:dark:focus:outline-muted-600 outline-0;
+}
+.dp__cell_inner {
+  @apply nui-focus;
+}
+.dp__date_hover {
+  @apply hover:bg-primary-500/10 hover:text-primary-500 dark:hover:bg-primary-500/10 dark:hover:text-primary-400;
+}
+.dp__overlay_col {
+  @apply [&>div]:focus:outline-muted-300 [&>div]:dark:focus:outline-muted-600 outline-0;
+  @apply [&>div]:focus:outline-muted-500 outline-0;
+}
+.dp__overlay_cell {
+  @apply nui-focus;
+}
+
+:root {
+  --dp-font-family: 'Roboto Flex', sans-serif;
+  --dp-border-radius: 8px;
+  --dp-cell-size: 28px;
+  --dp-month-year-row-button-size: 25px;
+  --dp-month-year-row-height: 40px;
+}
+.dp__theme_light {
+  --dp-font-size: 0.875rem;
+  --dp-primary-color: theme('colors.primary.500');
+  --dp-background-color: #fff;
+  --dp-text-color: theme('colors.muted.600');
+  --dp-secondary-color: theme('colors.muted.400');
+  --dp-menu-border-color: theme('colors.muted.200');
+  --dp-border-color: theme('colors.muted.200');
+  --dp-icon-color: theme('colors.muted.500');
+  --dp-hover-icon-color: theme('colors.muted.500');
+  --dp-hover-color: theme('colors.muted.100');
+  --dp-highlight-color: theme('colors.primary.500');
+}
+.dark .dp__theme_light {
+  --dp-font-size: 0.875rem;
+  --dp-primary-color: theme('colors.primary.500');
+  --dp-background-color: theme('colors.muted.800');
+  --dp-text-color: theme('colors.muted.400');
+  --dp-secondary-color: theme('colors.muted.600');
+  --dp-menu-border-color: theme('colors.muted.700');
+  --dp-border-color: theme('colors.muted.700');
+  --dp-icon-color: theme('colors.muted.500');
+  --dp-hover-icon-color: theme('colors.muted.500');
+  --dp-hover-color: theme('colors.muted.700');
+  --dp-highlight-color: theme('colors.primary.500');
+}

@@ -16,8 +16,8 @@ import { createInput, mergeClasses, removeClasses, sendEvents } from './utils'
 import ShurikenFile from './vue/File.vue'
 
 import './css/multistep.css'
-import '@jcamp/v-calendar/dist/style.css'
-import './css/vcalendar.css'
+import '@vuepic/vue-datepicker/dist/main.css'
+import './css/vuedatepicker.css'
 
 import { addClasses, replaceClasses } from './formkit.config.shuriken'
 
