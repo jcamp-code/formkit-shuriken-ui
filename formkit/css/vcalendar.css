@@ -1,20 +1,20 @@
 .vc-pane-container .vc-pane-layout {
   @apply font-sans;
 }
-.vc-pane-container .vc-pane-layout .vc-pane {
+/* .vc-pane-container .vc-pane-layout .vc-pane {
   @apply p-4;
-}
+} */
 .vc-pane-container .vc-pane-layout .vc-header .vc-title {
   @apply text-muted-800 dark:text-muted-100 text-base font-medium capitalize;
 }
 
 .vc-title {
-  @apply text-muted-600 dark:text-muted-100 relative -top-3.5;
+  @apply text-muted-600 dark:text-muted-100 relative;
 }
 
-.vc-pane-container .vc-pane-layout .vc-weeks {
+/* .vc-pane-container .vc-pane-layout .vc-weeks {
   @apply mt-2;
-}
+} */
 .vc-pane-container .vc-pane-layout .vc-weeks .vc-weekday {
   @apply text-muted-500 dark:text-muted-400/70 text-sm font-normal;
 }

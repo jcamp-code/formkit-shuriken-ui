@@ -21,8 +21,11 @@ dependencies:
     specifier: ^1.2.2
     version: 1.2.2(tailwindcss@3.3.3)
   '@jcamp/v-calendar':
-    specifier: ^4.0.0-beta.0
-    version: 4.0.0-beta.0(@floating-ui/vue@1.0.2)(vue@3.3.4)
+    specifier: ^4.0.0-beta.1
+    version: 4.0.0-beta.1(@popperjs/core@2.11.8)(vue@3.3.4)
+  '@popperjs/core':
+    specifier: ^2.11.8
+    version: 2.11.8
   '@shuriken-ui/nuxt':
     specifier: ^1.7.3
     version: 1.7.3(nuxt@3.7.4)(postcss@8.4.31)(vue@3.3.4)(webpack@5.88.2)
@@ -942,16 +945,6 @@ packages:
       vue-demi: 0.13.11(vue@3.3.4)
     dev: false
 
-  /@floating-ui/vue@1.0.2(vue@3.3.4):
-    resolution: {integrity: sha512-sImlAl9mAoCKZLNlwWz2P2ZMJIDlOEDXrRD6aD2sIHAka1LPC+nWtB+D3lPe7IE7FGWSbwBPTnlSdlABa3Fr0A==}
-    dependencies:
-      '@floating-ui/dom': 1.5.3
-      vue-demi: 0.14.6(vue@3.3.4)
-    transitivePeerDependencies:
-      - '@vue/composition-api'
-      - vue
-    dev: false
-
   /@formkit/addons@1.2.2:
     resolution: {integrity: sha512-5c4m0cToD8AbOFD38clEZSBNcXHY7xKjlEXvxs8lDlC4DSCkrdcbp5KgCFHJqci4p8z1zkxG/H8GXwYFaVRtTw==}
     dependencies:
@@ -1246,13 +1239,13 @@ packages:
       - supports-color
     dev: true
 
-  /@jcamp/v-calendar@4.0.0-beta.0(@floating-ui/vue@1.0.2)(vue@3.3.4):
-    resolution: {integrity: sha512-uHQ/1FGV4qpwEtyA/1ySFhAoLwPPqXgD5icaWgc/SRAE+A0tEdKzKz0hPDEL2oE+iLfl2cfTdZXUZcRCfg7bSw==}
+  /@jcamp/v-calendar@4.0.0-beta.1(@popperjs/core@2.11.8)(vue@3.3.4):
+    resolution: {integrity: sha512-sRuD5ZGS9X8TSxpVJCsPtTmjotuLqXEh6KRrGIwot8k4lMPw07L3NMgMgCjE+/i/70b+jT77Dh/tzghL8zPtyQ==}
     peerDependencies:
-      '@floating-ui/vue': ^1.0.2
+      '@popperjs/core': ^2.0.0
       vue: ^3.2.0
     dependencies:
-      '@floating-ui/vue': 1.0.2(vue@3.3.4)
+      '@popperjs/core': 2.11.8
       '@types/lodash': 4.14.198
       '@types/resize-observer-browser': 0.1.7
       date-fns: 2.30.0
@@ -1906,6 +1899,10 @@ packages:
   /@polka/url@1.0.0-next.23:
     resolution: {integrity: sha512-C16M+IYz0rgRhWZdCmK+h58JMv8vijAA61gmz2rspCSwKwzBebpdcsiUmwrtJRdphuY30i6BSLEOP8ppbNLyLg==}
     dev: true
+
+  /@popperjs/core@2.11.8:
+    resolution: {integrity: sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==}
+    dev: false
 
   /@rollup/plugin-alias@5.0.0(rollup@3.29.1):
     resolution: {integrity: sha512-l9hY5chSCjuFRPsnRm16twWBiSApl2uYFLsepQYwtBuAxNMQ/1dJqADld40P0Jkqm65GRTLy/AC6hnpVebtLsA==}
