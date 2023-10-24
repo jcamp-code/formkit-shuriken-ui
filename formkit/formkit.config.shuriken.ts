@@ -127,6 +127,7 @@ const shurikenUpdates = {
       [&>input:focus]:ring-primary-500
       [&>input:focus]dark:ring-primary-500
     `,
+    eyeDropper: 'border-muted-300 dark:border-muted-600',
   },
   file: {
     inner: 'h-auto px-1',
@@ -216,26 +217,29 @@ const replaceOriginal = {
   'multi-step': {},
 }
 
-const addClasses = mergeClasses(removeClasses(original, shurikenRemoves), shurikenUpdates)
-const replaceClasses = mergeClasses(
+const shurikenClasses = mergeClasses(
   removeClasses(replaceOriginal, shurikenRemoves),
   shurikenUpdates,
   false,
 )
 // need to get this to file and color picker only
-replaceClasses.file.inner = twMerge(replaceClasses['family:text'].inner, replaceClasses.file.inner)
-replaceClasses.file.input = twMerge(replaceClasses['family:text'].input, replaceClasses.file.input)
-replaceClasses.colorpicker.inner = twMerge(
-  replaceClasses['family:text'].inner,
-  replaceClasses.colorpicker.inner,
+shurikenClasses.file.inner = twMerge(
+  shurikenClasses['family:text'].inner,
+  shurikenClasses.file.inner,
 )
-replaceClasses.colorpicker.input = twMerge(
-  replaceClasses['family:text'].input,
-  replaceClasses.colorpicker.input,
+shurikenClasses.file.input = twMerge(
+  shurikenClasses['family:text'].input,
+  shurikenClasses.file.input,
+)
+shurikenClasses.colorpicker.inner = twMerge(
+  shurikenClasses['family:text'].inner,
+  shurikenClasses.colorpicker.inner,
+)
+shurikenClasses.colorpicker.input = twMerge(
+  shurikenClasses['family:text'].input,
+  shurikenClasses.colorpicker.input,
 )
 
-// replaceClasses.file.input = replaceClasses['family:text'].input
-delete replaceClasses['family:text']
-// delete replaceClasses['family:dropdown']
+delete shurikenClasses['family:text']
 
-export { addClasses, replaceClasses, shurikenRemoves, shurikenUpdates }
+export { shurikenClasses }

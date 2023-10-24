@@ -1,7 +1,9 @@
 // https://raw.githubusercontent.com/formkit/formkit/master/packages/themes/src/tailwindcss/genesis/index.ts
-// retrieved 9/30/23
-// note: need to remove colorpicker.fieldGroup max - [431px]:[&>input]:text-base', because of tairo's screens
-
+// retrieved 10/24/23
+// note: need to replace
+// colorpicker.fieldGroup max - [431px]:[&>input]:text-base', because of tairo's screens
+// with
+// [@media(max-width:431px)]:[&>input]:text-base
 
 export default {
   // Global styles apply to _all_ inputs with matching section keys
@@ -50,7 +52,7 @@ export default {
     emptyMessageInner:
       'flex items-center justify-center text-sm p-2 text-center w-full text-gray-500 [&>span]:mr-3 [&>span]:ml-0',
     inner:
-      'max-w-md relative flex ring-1 ring-gray-400 focus-within:ring-blue-500 focus-within:ring-2 rounded mb-1 formkit-disabled:focus-within:ring-gray-400 formkit-disabled:focus-within:ring-1 [&>span:first-child]:focus-within:text-blue-500',
+      'max-w-md relative flex ring-1 ring-gray-400 focus-within:ring-blue-500 focus-within:ring-2 rounded mb-2 formkit-disabled:focus-within:ring-gray-400 formkit-disabled:focus-within:ring-1 [&>span:first-child]:focus-within:text-blue-500',
     input: 'w-full px-3 py-2',
     listbox: 'bg-white shadow-lg rounded overflow-hidden',
     listboxButton: 'flex w-12 self-stretch justify-center mx-auto',
@@ -136,10 +138,12 @@ export default {
   // PRO input styles
   autocomplete: {
     closeIcon: 'block grow-0 shrink-0 w-3 mr-3.5',
-    inner: '[&>div>[data-value]]:absolute [&>div>[data-value]]:mb-0',
+    inner: 'relative',
     option: 'grow text-ellipsis',
-    selection:
-      'static flex left-0 top-0 right-0 bottom-0 mt-0 mb-2 rounded bg-gray-100',
+    selectionWrapper: `
+      absolute left-0 top-0 right-0 bottom-0 flex rounded bg-gray-100
+      formkit-multiple:static formkit-multiple:mt-0 formkit-multiple:mb-2 formkit-multiple:max-w-md
+    `,
   },
   colorpicker: {
     outer: `
@@ -375,7 +379,7 @@ export default {
       [&>input:focus]:outline-none
       [&>input:focus]:ring
       [&>input:focus]:ring-blue-500
-
+      [@media(max-width:431px)]:[&>input]:text-base
     `,
     fieldLabel: `
       text-xs

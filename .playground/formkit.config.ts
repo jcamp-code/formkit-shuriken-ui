@@ -1,20 +1,18 @@
-import { addShurikenFormKitConfig } from '../formkit'
-import { genesisIcons } from '@formkit/icons'
 import { createMultiStepPlugin } from '@formkit/addons'
+import { genesisIcons } from '@formkit/icons'
+// import { createProPlugin, inputs } from '@formkit/pro'
 import { defineFormKitConfig } from '@formkit/vue'
 
-// import { createProPlugin, inputs } from '@formkit/pro'
-// const proPlugin = createProPlugin('<FORMKIT PRO KEY>', inputs)
+import { shurikenFormKitConfig } from '../formkit'
 
-const shConfig = addShurikenFormKitConfig()
+//const proPlugin = createProPlugin('<FORMKIT-KEY-HERE>', inputs)
 
-// how to delete an input you don't want
-// delete shConfig.inputs?.shfile
+const shConfig = shurikenFormKitConfig()
 
 export default defineFormKitConfig({
   ...shConfig,
   plugins: [
-    // proPlugin,
+    //    proPlugin,
     createMultiStepPlugin(),
   ],
   icons: {

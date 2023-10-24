@@ -13,13 +13,12 @@ import {
   shtoggle,
 } from './inputs'
 import { createInput, mergeClasses, removeClasses, sendEvents } from './utils'
-import ShurikenFile from './vue/File.vue'
 
 import './css/multistep.css'
 import '@vuepic/vue-datepicker/dist/main.css'
 import './css/vuedatepicker.css'
 
-import { addClasses, replaceClasses } from './formkit.config.shuriken'
+import { shurikenClasses } from './formkit.config.shuriken'
 
 // defineFormKitConfig() will not work here for some reason; it wipes the inputs
 function createInputs(prefix: string = 'sh') {
@@ -48,36 +47,15 @@ function createInputs(prefix: string = 'sh') {
   }
 }
 
-function replaceShurikenFormKitConfig(): DefaultConfigOptions {
+function shurikenFormKitConfig(prefix?: string): DefaultConfigOptions {
   return {
     config: {
-      classes: generateClasses(replaceClasses),
+      classes: generateClasses(shurikenClasses),
     },
     inputs: {
-      ...createInputs(''),
+      ...createInputs(prefix ?? ''),
     },
   }
 }
 
-function addShurikenFormKitConfig(): DefaultConfigOptions {
-  return {
-    config: {
-      classes: generateClasses(addClasses),
-    },
-    inputs: {
-      ...createInputs('sh'),
-      shfile: createInput(ShurikenFile, {
-        props: ['shape'],
-      }),
-    },
-  }
-}
-
-export {
-  addShurikenFormKitConfig,
-  replaceShurikenFormKitConfig,
-  mergeClasses,
-  removeClasses,
-  createInput,
-  sendEvents,
-}
+export { shurikenFormKitConfig, mergeClasses, removeClasses, createInput, sendEvents }

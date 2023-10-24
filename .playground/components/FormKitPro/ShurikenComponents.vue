@@ -61,12 +61,18 @@ const people = ref([
           <div class="divide-y divide-gray-200">
             <div class="grid grid-cols-12 gap-4 py-8">
               <div class="col-span-12">
-                <FormKit type="shdatepicker" name="date" label="Date" />
                 <FormKit
-                  type="shdropdown"
+                  type="datepicker"
+                  name="date"
+                  label="Date"
+                  suffix-icon="ph:calendar-blank-duotone"
+                />
+                <FormKit
+                  type="dropdown"
                   name="dropdown"
                   label="Dropdown"
                   shape="curved"
+                  color-focus
                   placeholder="pick a framework"
                   :items="frameworks"
                   :input-classes="{
@@ -75,21 +81,27 @@ const people = ref([
                   }"
                 />
                 <FormKit
-                  type="shautocomplete"
-                  :items="people"
-                  label="Auto Complete"
-                  name="participants"
+                  type="dropdown"
+                  :options="people"
+                  label="Drop down strings"
                   placeholder="Choose people..."
+                  color-focus
                   shape="curved"
                   icon="ph:users-duotone"
-                  :input-classes="{
-                    input: '!h-11 !ps-11',
-                    icon: '!h-11',
-                  }"
                 />
-                <FormKit type="shtoggle" name="switch" label="Switch" sublabel="sub label" />
                 <FormKit
-                  type="shtoggle"
+                  type="autocomplete"
+                  :options="people"
+                  label="Auto Complete"
+                  placeholder="Choose people..."
+                  color-focus
+                  multiple
+                  shape="curved"
+                  icon="ph:users-duotone"
+                />
+                <FormKit type="toggle" name="switch" label="Switch" sublabel="sub label" />
+                <FormKit
+                  type="toggle"
                   :thin="true"
                   name="switch"
                   label="Switch"
@@ -105,7 +117,9 @@ const people = ref([
             </div>
           </div>
         </div>
-        <pre>{{ formModel }}</pre>
+        <ClientOnly>
+          <pre>{{ formModel }}</pre>
+        </ClientOnly>
       </BaseCard>
     </div>
   </FormKit>

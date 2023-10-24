@@ -1,4 +1,32 @@
 <script setup lang="ts">
+async function searchMovies(search: string) {
+  if (!search) return []
+  const res = await fetch(
+    `https://api.themoviedb.org/3/search/movie?query=${
+      search || ''
+    }&api_key=f48bcc9ed9cbce41f6c28ea181b67e14&language=en-US&page=1&include_adult=false`,
+  )
+  if (res.ok) {
+    const data = await res.json()
+    // Iterating over results to set the required
+    // `label` and `value` keys.
+    return data.results.map((result: any) => {
+      return {
+        id: result.id,
+        text: result.title,
+      }
+    })
+  }
+  // If the request fails, we return an empty array.
+  return []
+}
+function filterItems(query?: string) {
+  if (!query) return []
+
+  // search by name or text
+  return searchMovies(query)
+}
+
 const formModel = ref({
   text: '',
   textarea: '',
@@ -8,7 +36,7 @@ const formModel = ref({
   search: '',
   url: '',
   number: 1,
-  date: new Date(),
+  date: '2023-10-01',
   datetimeLocal: '',
   startDate: new Date(),
   endDate: new Date(),
@@ -23,6 +51,20 @@ const dates = ref({
   start: new Date(),
   end: new Date(),
 })
+const frameworks = [
+  { label: 'React', value: 'react' },
+  { label: 'Vue', value: 'vue' },
+  { label: 'Angular', value: 'angular' },
+  { label: 'Svelte', value: 'svelte' },
+]
+const frameworks3 = [
+  { name: 'React', valueKey: 'react' },
+  { name: 'Vue', text: 'ghghg', valueKey: 'vue' },
+  { name: 'Angular', text: '', valueKey: 'angular' },
+  { name: 'Svelte', text: '', valueKey: 'svelte' },
+]
+
+const frameworks2 = ref(['Javascript', 'Nuxt', 'Vue.js', 'React.js', 'Angular', 'Alpine.js'])
 
 const masks = ref({
   input: 'YYYY-MM-DD',
@@ -36,6 +78,10 @@ const people = ref([
   'Hermann Schmidt',
   'Chloe Varley',
 ])
+
+const selectedMovie = ref()
+const selectedFramework = ref('angular')
+const newDate = ref()
 </script>
 
 <template>
@@ -60,20 +106,37 @@ const people = ref([
             <div class="grid grid-cols-12 gap-4 py-8">
               <div class="col-span-12">
                 <FormKit
-                  type="shtext"
+                  type="text"
+                  label="Text"
+                  name="text"
+                  color-focus
+                  placeholder="Some text placeholder"
+                  shape="curved"
+                  icon="ph:ticket-duotone"
+                  :suffix-icon="formModel.text && 'ph:x'"
+                  suffix-button
+                  :input-classes="{
+                    suffixButton: '!hidden group-focus-within:!flex',
+                    suffixIcon: 'group-focus-within:!text-primary-500',
+                  }"
+                  validation="required"
+                />
+
+                <FormKit
+                  type="text"
                   label="Text"
                   name="text"
                   placeholder="Some text placeholder"
                   shape="curved"
                   icon="ph:ticket-duotone"
                   :input-classes="{
-                    input: '!h-11 !ps-11',
-                    icon: '!h-11 !w-11',
+                    suffixButton: ' group-focus-within:!flex',
+                    suffixIcon: 'group-focus-within:!text-primary-500',
                   }"
                   validation="required"
                 />
                 <FormKit
-                  type="shtextarea"
+                  type="textarea"
                   label="Text Area"
                   name="textarea"
                   placeholder="Text area placeholder"
@@ -82,7 +145,7 @@ const people = ref([
                   validation="required"
                 />
                 <FormKit
-                  type="shtel"
+                  type="tel"
                   label="Telephone"
                   name="tel"
                   placeholder="Phone placeholder"
@@ -91,7 +154,7 @@ const people = ref([
                   }"
                 />
                 <FormKit
-                  type="shemail"
+                  type="email"
                   label="Email"
                   name="email"
                   placeholder="Email placeholder"
@@ -100,7 +163,7 @@ const people = ref([
                   }"
                 />
                 <FormKit
-                  type="shdate"
+                  type="date"
                   label="Date"
                   name="date"
                   placeholder="Date placeholder"
@@ -109,7 +172,7 @@ const people = ref([
                   }"
                 />
                 <FormKit
-                  type="shdatetimeLocal"
+                  type="datetimeLocal"
                   label="Date Time Local"
                   name="datetimeLocal"
                   placeholder="Date Time Local placeholder"
@@ -118,7 +181,7 @@ const people = ref([
                   }"
                 />
                 <FormKit
-                  type="shnumber"
+                  type="number"
                   label="Number"
                   name="number"
                   placeholder="Number placeholder"
@@ -127,7 +190,7 @@ const people = ref([
                   }"
                 />
                 <FormKit
-                  type="shpassword"
+                  type="password"
                   label="Password"
                   name="password"
                   placeholder="Password placeholder"
@@ -136,7 +199,7 @@ const people = ref([
                   }"
                 />
                 <FormKit
-                  type="shsearch"
+                  type="search"
                   label="Search"
                   name="search"
                   placeholder="Search placeholder"
@@ -145,7 +208,7 @@ const people = ref([
                   }"
                 />
                 <FormKit
-                  type="shurl"
+                  type="url"
                   label="Url"
                   name="url"
                   placeholder="Url placeholder"
@@ -155,8 +218,8 @@ const people = ref([
                 />
 
                 <FormKit
-                  type="shautocomplete"
-                  :items="people"
+                  type="autocomplete"
+                  :options="people"
                   label="Auto Complete"
                   multiple
                   name="participants"
@@ -171,56 +234,48 @@ const people = ref([
               </div>
               <div class="col-span-12 sm:col-span-6">
                 <FormKit
-                  type="shcolor"
+                  type="color"
                   list="eventColors"
                   label="Color"
                   name="color"
                   placeholder="Pick a color..."
                   shape="curved"
                   icon="ph:drop-half-duotone"
-                  :input-classes="{
-                    input: '!h-11 !ps-11 appearance-none',
-                    icon: '!h-11 !w-11',
-                  }"
                 />
                 <datalist id="eventColors">
-                  <option value="#84cc16"></option>
-                  <option value="#22c55e"></option>
-                  <option value="#0ea5e9"></option>
-                  <option value="#6366f1"></option>
-                  <option value="#8b5cf6"></option>
-                  <option value="#d946ef"></option>
-                  <option value="#f43f5e"></option>
-                  <option value="#facc15"></option>
-                  <option value="#fb923c"></option>
-                  <option value="#9ca3af"></option>
+                  <option value="#84cc16" />
+                  <option value="#22c55e" />
+                  <option value="#0ea5e9" />
+                  <option value="#6366f1" />
+                  <option value="#8b5cf6" />
+                  <option value="#d946ef" />
+                  <option value="#f43f5e" />
+                  <option value="#facc15" />
+                  <option value="#fb923c" />
+                  <option value="#9ca3af" />
                 </datalist>
               </div>
               <div class="col-span-12 sm:col-span-6">
                 <FormKit
-                  type="shtext"
+                  type="text"
                   list="eventCategories"
                   label="List"
                   name="category"
                   placeholder="Pick a category..."
                   shape="curved"
                   icon="ph:ticket-duotone"
-                  :input-classes="{
-                    input: '!h-11 !ps-11',
-                    icon: '!h-11 !w-11',
-                  }"
                 />
                 <datalist id="eventCategories">
-                  <option value="Chrome"></option>
-                  <option value="Firefox"></option>
-                  <option value="Opera"></option>
-                  <option value="Safari"></option>
-                  <option value="Microsoft Edge"></option>
+                  <option value="Chrome" />
+                  <option value="Firefox" />
+                  <option value="Opera" />
+                  <option value="Safari" />
+                  <option value="Microsoft Edge" />
                 </datalist>
               </div>
               <div class="col-span-12 sm:col-span-6">
                 <FormKit
-                  type="shcheckbox"
+                  type="checkbox"
                   label="I accept"
                   shape="rounded"
                   color="primary"
@@ -228,7 +283,7 @@ const people = ref([
                 />
               </div>
               <div class="col-span-12 sm:col-span-6">
-                <FormKit type="shcheckbox" shape="rounded" color="primary" name="agree">
+                <FormKit type="checkbox" shape="rounded" color="primary" name="agree">
                   <span>
                     <span>I accept the</span>
                     <a href="#" class="text-primary-500 hover:underline focus:underline">
@@ -240,16 +295,16 @@ const people = ref([
               <div class="col-span-12 sm:col-span-6">
                 <FormKit
                   name="radio"
-                  type="shradio"
+                  type="radio"
                   color="primary"
                   label="Preferred transportation"
-                  :items="['E-Bike', 'E-Scooter', 'Electric car', 'Walking', 'Space tube']"
+                  :options="['E-Bike', 'E-Scooter', 'Electric car', 'Walking', 'Space tube']"
                   help="How do you like to get around?"
                 />
               </div>
               <div class="col-span-12 sm:col-span-6">
                 <FormKit
-                  type="shfile"
+                  type="file"
                   label="Documents"
                   accept=".pdf,.doc,.docx,.xml,.md,.csv"
                   help="Select as many documents as you would like."
@@ -265,12 +320,57 @@ const people = ref([
             </div>
           </div>
         </div>
-        <pre>{{ formModel }}</pre>
+        <ClientOnly>
+          <pre>{{ formModel }}</pre>
+        </ClientOnly>
       </BaseCard>
     </div>
     <FormKit type="multi-step" tab-style="progress">
       <FormKit type="step" name="stepOne">
-        <FormKit type="shtext" label="Name" validation="required" />
+        <FormKit type="text" label="Name" validation="required" />
+        <FormKit type="text" label="Name" validation="required" />
+        <FormKit type="textarea" label="Your story" validation="required" />
+        <BaseAutocomplete
+          :filter-items="filterItems"
+          label="Movies through Autocomplete Directly"
+          :display-value="(item) => item.text"
+          placeholder="Choose movie..."
+          icon="ph:user-duotone"
+          :filter-debounce="300"
+        />
+        <FormKit
+          v-model="selectedMovie"
+          type="autocomplete"
+          :filter-items="filterItems"
+          label="Movies through FormKit"
+          :display-value="(item: any) => item.text"
+          placeholder="Choose movie..."
+          icon="ph:user-duotone"
+          :filter-debounce="300"
+          by="id"
+        />
+        {{ selectedMovie }}
+        <FormKit
+          type="autocomplete"
+          v-model="selectedFramework"
+          label="Dropdown"
+          shape="curved"
+          color-focus
+          clearable
+          allow-custom
+          placeholder="pick a framework"
+          :items="frameworks2"
+        />
+        {{ selectedFramework }}
+
+        <FormKit
+          v-model="newDate"
+          type="datepicker"
+          name="date"
+          label="Date"
+          suffix-icon="ph:calendar-blank-duotone"
+        />
+        <pre>{{ newDate }}</pre>
       </FormKit>
       <FormKit type="step" name="stepTwo">
         <FormKit type="textarea" label="Your story" validation="required" />

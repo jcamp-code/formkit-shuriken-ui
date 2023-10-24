@@ -35,6 +35,8 @@ const people = ref([
   'Hermann Schmidt',
   'Chloe Varley',
 ])
+
+const flavors = ['Chocolate', 'Vanilla', 'Strawberry']
 </script>
 
 <template>
@@ -60,6 +62,23 @@ const people = ref([
               <div class="col-span-12">
                 <FormKit type="colorpicker" />
                 <FormKit
+                  type="taglist"
+                  name="flavors"
+                  label="Select or add a flavor"
+                  :options="flavors"
+                  :value="['Chocolate', 'Vanilla']"
+                  :allow-new-values="true"
+                />
+                <FormKit
+                  type="taglist"
+                  name="flavors"
+                  label="Select or add a flavor"
+                  :value="['Chocolate', 'Vanilla']"
+                  :allow-new-values="true"
+                  listbox-button-class="hidden"
+                  dropdown-wrapper-class="hidden"
+                />
+                <FormKit
                   type="datepicker"
                   name="date"
                   label="Appointment date"
@@ -75,6 +94,7 @@ const people = ref([
                   label="Dropdown"
                   placeholder="pick a framework"
                   :options="frameworks"
+                  prefix-icon="i-[ph/users-duotone]"
                 />
                 <FormKit
                   type="autocomplete"
@@ -83,7 +103,7 @@ const people = ref([
                   multiple
                   name="participants"
                   placeholder="Choose people..."
-                  prefix-icon="i-[ph-users-duotone]"
+                  prefix-icon="i-[ph/users-duotone]"
                   validation="required"
                 />
                 <FormKit type="toggle" name="switch" label="Switch" />
@@ -97,7 +117,9 @@ const people = ref([
             </div>
           </div>
         </div>
-        <pre>{{ formModel }}</pre>
+        <ClientOnly>
+          <pre>{{ formModel }}</pre>
+        </ClientOnly>
       </BaseCard>
     </div>
   </FormKit>

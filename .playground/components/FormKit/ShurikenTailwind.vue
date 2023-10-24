@@ -8,7 +8,7 @@ const formModel = ref({
   search: '',
   url: '',
   number: 1,
-  date: new Date(),
+  date: '2023-10-01',
   datetimeLocal: '',
   startDate: new Date(),
   endDate: new Date(),
@@ -63,8 +63,13 @@ const people = ref([
                   label="Text"
                   name="text"
                   placeholder="Some text placeholder"
-                  prefix-icon="i-[ph-ticket-duotone]"
+                  prefix-icon="i-[ph/ticket-duotone]"
+                  suffix-icon="ph:x"
                   validation="required"
+                  color-focus
+                  @prefixIconClick="console.log('prefix')"
+                  @suffixIconClick="console.log('suffix')"
+                  @actionClick="console.log('action')"
                 />
                 <FormKit
                   type="textarea"
@@ -109,7 +114,7 @@ const people = ref([
                   multiple
                   name="participants"
                   placeholder="Choose people..."
-                  prefix-icon="i-[ph-users-duotone]"
+                  prefix-icon="ph:users-duotone"
                   validation="required"
                 />
               </div>
@@ -120,7 +125,7 @@ const people = ref([
                   label="Color"
                   name="color"
                   placeholder="Pick a color..."
-                  prefix-icon="i-[ph-drop-duotone]"
+                  prefix-icon="ph:drop-duotone"
                 />
                 <datalist id="eventColors">
                   <option value="#84cc16"></option>
@@ -142,7 +147,7 @@ const people = ref([
                   label="List"
                   name="category"
                   placeholder="Pick a category..."
-                  prefix-icon="i-[ph-ticket-duotone]"
+                  prefix-icon="ph:ticket-duotone"
                 />
                 <datalist id="eventCategories">
                   <option value="Chrome"></option>
@@ -194,7 +199,9 @@ const people = ref([
             </div>
           </div>
         </div>
-        <pre>{{ formModel }}</pre>
+        <ClientOnly>
+          <pre>{{ formModel }}</pre>
+        </ClientOnly>
       </BaseCard>
     </div>
   </FormKit>
