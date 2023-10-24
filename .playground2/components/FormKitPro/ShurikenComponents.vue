@@ -81,6 +81,15 @@ const people = ref([
                   }"
                 />
                 <FormKit
+                  type="dropdown"
+                  :options="people"
+                  label="Drop down strings"
+                  placeholder="Choose people..."
+                  color-focus
+                  shape="curved"
+                  icon="ph:users-duotone"
+                />
+                <FormKit
                   type="autocomplete"
                   :options="people"
                   label="Auto Complete"

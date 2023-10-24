@@ -36,7 +36,24 @@ type PropertiesData =
     }
   | undefined
 
+const options = computed(() => {
+  if (context?.options) return context.options
+  return context?.attrs?.items
+})
+
+const isString = computed(() => {
+  if (context?.strings) return true
+  if (
+    Array.isArray(options.value) &&
+    options.value.length > 0 &&
+    typeof options.value[0] === 'string'
+  )
+    return true
+  return false
+})
+
 const properties = computed(() => {
+  if (isString.value) return {}
   return {
     value: context?.optionValue ?? 'value',
     label: context?.optionLabel ?? 'label',
@@ -49,7 +66,7 @@ const properties = computed(() => {
     :id="context?.id"
     v-model.prop="context!._value"
     :multiple="context?.multiple"
-    :items="context?.options || context?.attrs?.items"
+    :items="options"
     :disabled="attrs._disabled ?? false"
     :readonly="attrs._readonly ?? false"
     :style="attrs.style"
