@@ -20,18 +20,15 @@ dependencies:
   '@formkit/themes':
     specifier: ^1.2.2
     version: 1.2.2(tailwindcss@3.3.3)
-  '@popperjs/core':
-    specifier: ^2.11.8
-    version: 2.11.8
+  '@jcamp/v-calendar':
+    specifier: ^4.0.0-beta.0
+    version: 4.0.0-beta.0(@floating-ui/vue@1.0.2)(vue@3.3.4)
   '@shuriken-ui/nuxt':
     specifier: ^1.7.3
     version: 1.7.3(nuxt@3.7.4)(postcss@8.4.31)(vue@3.3.4)(webpack@5.88.2)
   tailwind-merge:
     specifier: ^1.14.0
     version: 1.14.0
-  v-calendar:
-    specifier: ^3.1.0
-    version: 3.1.0(@popperjs/core@2.11.8)(vue@3.3.4)
 
 devDependencies:
   '@jcamp/eslint-config':
@@ -945,6 +942,16 @@ packages:
       vue-demi: 0.13.11(vue@3.3.4)
     dev: false
 
+  /@floating-ui/vue@1.0.2(vue@3.3.4):
+    resolution: {integrity: sha512-sImlAl9mAoCKZLNlwWz2P2ZMJIDlOEDXrRD6aD2sIHAka1LPC+nWtB+D3lPe7IE7FGWSbwBPTnlSdlABa3Fr0A==}
+    dependencies:
+      '@floating-ui/dom': 1.5.3
+      vue-demi: 0.14.6(vue@3.3.4)
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - vue
+    dev: false
+
   /@formkit/addons@1.2.2:
     resolution: {integrity: sha512-5c4m0cToD8AbOFD38clEZSBNcXHY7xKjlEXvxs8lDlC4DSCkrdcbp5KgCFHJqci4p8z1zkxG/H8GXwYFaVRtTw==}
     dependencies:
@@ -1238,6 +1245,22 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /@jcamp/v-calendar@4.0.0-beta.0(@floating-ui/vue@1.0.2)(vue@3.3.4):
+    resolution: {integrity: sha512-uHQ/1FGV4qpwEtyA/1ySFhAoLwPPqXgD5icaWgc/SRAE+A0tEdKzKz0hPDEL2oE+iLfl2cfTdZXUZcRCfg7bSw==}
+    peerDependencies:
+      '@floating-ui/vue': ^1.0.2
+      vue: ^3.2.0
+    dependencies:
+      '@floating-ui/vue': 1.0.2(vue@3.3.4)
+      '@types/lodash': 4.14.198
+      '@types/resize-observer-browser': 0.1.7
+      date-fns: 2.30.0
+      date-fns-tz: 2.0.0(date-fns@2.30.0)
+      lodash: 4.17.21
+      vue: 3.3.4
+      vue-screen-utils: 1.0.0-beta.13(vue@3.3.4)
+    dev: false
 
   /@jest/schemas@29.6.3:
     resolution: {integrity: sha512-mo5j5X+jIZmJQveBKeS/clAueipV7KgiX1vMgCxam1RNYiqE1w62n0/tJJnHtjW8ZHcQco5gY85jA3mi0L+nSA==}
@@ -1883,10 +1906,6 @@ packages:
   /@polka/url@1.0.0-next.23:
     resolution: {integrity: sha512-C16M+IYz0rgRhWZdCmK+h58JMv8vijAA61gmz2rspCSwKwzBebpdcsiUmwrtJRdphuY30i6BSLEOP8ppbNLyLg==}
     dev: true
-
-  /@popperjs/core@2.11.8:
-    resolution: {integrity: sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==}
-    dev: false
 
   /@rollup/plugin-alias@5.0.0(rollup@3.29.1):
     resolution: {integrity: sha512-l9hY5chSCjuFRPsnRm16twWBiSApl2uYFLsepQYwtBuAxNMQ/1dJqADld40P0Jkqm65GRTLy/AC6hnpVebtLsA==}
@@ -3714,8 +3733,8 @@ packages:
     resolution: {integrity: sha512-0R9ikRb668HB7QDxT1vkpuUBtqc53YyAwMwGeUFKRojY/NWKvdZ+9UYtRfGmhqNbRkTSVpMbmyhXipFFv2cb/A==}
     engines: {node: '>= 12'}
 
-  /date-fns-tz@1.3.8(date-fns@2.30.0):
-    resolution: {integrity: sha512-qwNXUFtMHTTU6CFSFjoJ80W8Fzzp24LntbjFFBgL/faqds4e5mo9mftoRLgr3Vi1trISsg4awSpYVsOQCRnapQ==}
+  /date-fns-tz@2.0.0(date-fns@2.30.0):
+    resolution: {integrity: sha512-OAtcLdB9vxSXTWHdT8b398ARImVwQMyjfYGkKD2zaGpHseG2UPHbHjXELReErZFxWdSLph3c2zOaaTyHfOhERQ==}
     peerDependencies:
       date-fns: '>=2.0.0'
     dependencies:
@@ -8766,22 +8785,6 @@ packages:
 
   /util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
-
-  /v-calendar@3.1.0(@popperjs/core@2.11.8)(vue@3.3.4):
-    resolution: {integrity: sha512-AoVTpz5QkaK+qRSTOEHOW2IxH+KfuQGnEk/N64y4cj2K37kGeC3M7nWVqXjXqBHPHpo5WmtNZ5lidUT+nn4ZAA==}
-    peerDependencies:
-      '@popperjs/core': ^2.0.0
-      vue: ^3.2.0
-    dependencies:
-      '@popperjs/core': 2.11.8
-      '@types/lodash': 4.14.198
-      '@types/resize-observer-browser': 0.1.7
-      date-fns: 2.30.0
-      date-fns-tz: 1.3.8(date-fns@2.30.0)
-      lodash: 4.17.21
-      vue: 3.3.4
-      vue-screen-utils: 1.0.0-beta.13(vue@3.3.4)
-    dev: false
 
   /validate-npm-package-license@3.0.4:
     resolution: {integrity: sha512-DpKm2Ui/xN7/HQKCtpZxoRWBhZ9Z0kqtygG8XCgNQ8ZlDnxuQmWhj566j8fN4Cu3/JmbhsDo7fcAJq4s9h27Ew==}

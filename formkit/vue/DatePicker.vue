@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { DatePicker as vDatePicker } from 'v-calendar'
+import { DatePicker as vDatePicker } from '@jcamp/v-calendar'
 
 import BaseInputIcons from '../../components/BaseInputIcons.vue'
 import { sendEvents } from '../utils'
