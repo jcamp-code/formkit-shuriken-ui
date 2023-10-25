@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { DatePicker } from 'v-calendar'
+import AutoTest from './AutoTest.vue'
 
 const frameworks = [
   { label: 'React', value: 'react' },
@@ -89,16 +89,19 @@ const people = ref([
                   shape="curved"
                   icon="ph:users-duotone"
                 />
-                <FormKit
-                  type="autocomplete"
-                  :options="people"
-                  label="Auto Complete"
-                  placeholder="Choose people..."
-                  color-focus
-                  multiple
-                  shape="curved"
-                  icon="ph:users-duotone"
-                />
+                <div class="h-24 w-48 overflow-hidden">
+                  <FormKit
+                    type="autocomplete"
+                    :options="people"
+                    label="Auto Complete With Custom Slots"
+                    placeholder="Choose people..."
+                    color-focus
+                    multiple
+                    portal
+                    shape="curved"
+                    icon="ph:users-duotone"
+                  ></FormKit>
+                </div>
                 <FormKit type="toggle" name="switch" label="Switch" sublabel="sub label" />
                 <FormKit
                   type="toggle"

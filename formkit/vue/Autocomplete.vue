@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import IconTw from '../../components/IconTw.vue'
+import AutoTest from './AutoTest.vue'
 import BaseAutocomplete from './BaseAutocomplete.vue'
 
 const props = defineProps({
@@ -50,12 +51,16 @@ function handleBlur(e: any) {
     :display-value="context?.displayValue"
     :filter-debounce="context?.filterDebounce"
     :placeholder="attrs.placeholder"
+    :portal="context?.portal"
     dropdown
     :allow-custom="context?.allowCustom ?? false"
     :clearable="context?.clearable"
     @update:model-value="handleChange"
     @blur="handleBlur"
   >
+    <template v-if="context?.itemComp" #item="slotProps">
+      <component :is="context?.itemComp" v-bind="slotProps"></component>
+    </template>
     <template v-if="context?.prefixIcon || context?.icon" #icon>
       <IconTw
         :name="context?.prefixIcon || context?.icon"
