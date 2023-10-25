@@ -53,6 +53,7 @@ function handleBlur(e: any) {
     dropdown
     :allow-custom="context?.allowCustom ?? false"
     :clearable="context?.clearable"
+    :properties="context?.properties"
     @update:model-value="handleChange"
     @blur="handleBlur"
   >

@@ -54,6 +54,7 @@ const isString = computed(() => {
 
 const properties = computed(() => {
   if (isString.value) return {}
+  if (context?.properties) return context.properties
   return {
     value: context?.optionValue ?? 'value',
     label: context?.optionLabel ?? 'label',
@@ -79,6 +80,7 @@ const properties = computed(() => {
     :aria-labelledby="attrs.ariaLabelledby"
     :placeholder="attrs.placeholder"
     :properties="properties"
+    :portal="context?.portal"
     @update:model-value="handleInput"
     @blur="handleBlur"
   >

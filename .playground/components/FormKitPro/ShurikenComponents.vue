@@ -91,9 +91,31 @@ const people = ref([
                 />
                 <div class="h-24 w-48 overflow-hidden">
                   <FormKit
+                    type="dropdown"
+                    :options="people"
+                    label="Drop down Portalled"
+                    placeholder="Choose people..."
+                    color-focus
+                    portal
+                    shape="curved"
+                    icon="ph:users-duotone"
+                  />
+                </div>
+                <FormKit
+                  type="autocomplete"
+                  :options="people"
+                  label="Auto Complete"
+                  placeholder="Choose people..."
+                  color-focus
+                  multiple
+                  shape="curved"
+                  icon="ph:users-duotone"
+                ></FormKit>
+                <div class="h-24 w-48 overflow-hidden">
+                  <FormKit
                     type="autocomplete"
                     :options="people"
-                    label="Auto Complete With Custom Slots"
+                    label="Auto Complete Portalled"
                     placeholder="Choose people..."
                     color-focus
                     multiple
