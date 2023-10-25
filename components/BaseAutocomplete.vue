@@ -9,8 +9,6 @@ import {
   ComboboxOptions,
 } from '@headlessui/vue'
 
-import BaseAutocompleteItem from './BaseAutocompleteItem.vue'
-
 const props = withDefaults(
   defineProps<{
     /**
@@ -236,6 +234,7 @@ const props = withDefaults(
     classes: () => ({}),
     allowCustom: false,
     portal: false,
+    properties: undefined,
   },
 )
 
@@ -371,8 +370,9 @@ function removeItem(item: any) {
 function key(item: T) {
   if (props.properties == null) return props.displayValue(item)
   if (typeof props.properties.key === 'string') return (item as any)[props.properties.key]
-  //@ts-expect-error not sure why properties.key ends up undefined
-  if (typeof props.properties.key === 'function') return props.properties.key(item as any)
+  if (typeof props.properties.key === 'function')
+    //@ts-expect-error not sure why properties.key ends up undefined
+    return props.properties.key(item as any)
   return props.displayValue(item)
 }
 </script>
@@ -423,7 +423,7 @@ function key(item: T) {
               {{ props.displayValue(item) }}
               <button type="button" @click="removeItem(item)">
                 <slot name="chip-clear-icon">
-                  <Icon :name="chipClearIcon" class="nui-autocomplete-multiple-list-item-icon" />
+                  <IconTw :name="chipClearIcon" class="nui-autocomplete-multiple-list-item-icon" />
                 </slot>
               </button>
             </div>
@@ -452,7 +452,7 @@ function key(item: T) {
           </ComboboxLabel>
           <div v-if="iconResolved" class="nui-autocomplete-icon">
             <slot name="icon" :icon-name="iconResolved">
-              <Icon :name="iconResolved" class="nui-autocomplete-icon-inner" />
+              <IconTw :name="iconResolved" class="nui-autocomplete-icon-inner" />
             </slot>
           </div>
           <button
@@ -463,7 +463,7 @@ function key(item: T) {
             @click="clear"
           >
             <slot name="clear-icon">
-              <Icon :name="props.clearIcon" class="nui-autocomplete-clear-inner" />
+              <IconTw :name="props.clearIcon" class="nui-autocomplete-clear-inner" />
             </slot>
           </button>
           <ComboboxButton
@@ -472,7 +472,7 @@ function key(item: T) {
             class="nui-autocomplete-clear"
           >
             <slot name="dropdown-icon">
-              <Icon
+              <IconTw
                 :name="props.dropdownIcon"
                 class="nui-autocomplete-clear-inner transition-transform duration-300"
                 :class="[props.classes?.icon, open && 'rotate-180']"
@@ -492,10 +492,19 @@ function key(item: T) {
       >
         {{ props.error }}
       </span>
-      <FloatContent :class="props.portal ? 'nui-autocomplete nui-autocomplete-default' : 'w-full'">
+      <FloatContent
+        :class="[
+          !props.portal && 'w-full',
+          props.portal && 'nui-autocomplete',
+          props.portal && sizeStyle[props.size],
+          props.portal && contrastStyle[props.contrast],
+          props.portal && shape && shapeStyle[shape],
+        ]"
+      >
         <ComboboxOptions
           as="div"
           :class="{ 'nui-autocomplete-results': filteredItems.length > 0 || !allowCustom }"
+          :unmount="!portal"
         >
           <!-- Placeholder -->
           <div

@@ -86,32 +86,32 @@ const inputContext = inject('BaseAutocompleteContext', {
 })
 
 const label = computed(() => {
-  if (props.item == null || props.properties == null) return undefined
+  if (props.item == null || props.properties == null) return
   if (typeof props.properties.label === 'string') return (props.item as any)[props.properties.label]
   if (typeof props.properties.label === 'function') return props.properties.label(props.item)
-  return undefined
+  return
 })
 
 const sublabel = computed(() => {
-  if (props.item == null || props.properties == null) return undefined
+  if (props.item == null || props.properties == null) return
   if (typeof props.properties.sublabel === 'string')
     return (props.item as any)[props.properties.sublabel]
   if (typeof props.properties.sublabel === 'function') return props.properties.sublabel(props.item)
-  return undefined
+  return
 })
 
 const media = computed(() => {
-  if (props.item == null || props.properties == null) return undefined
+  if (props.item == null || props.properties == null) return
   if (typeof props.properties.media === 'string') return (props.item as any)[props.properties.media]
   if (typeof props.properties.media === 'function') return props.properties.media(props.item)
-  return undefined
+  return
 })
 
 const icon = computed(() => {
-  if (props.item == null || props.properties == null) return undefined
+  if (props.item == null || props.properties == null) return
   if (typeof props.properties.icon === 'string') return (props.item as any)[props.properties.icon]
   if (typeof props.properties.icon === 'function') return props.properties.icon(props.item)
-  return undefined
+  return
 })
 
 const query = computed(() => inputContext.query)
@@ -128,7 +128,7 @@ const markedSublabel = useNinjaMark(() => sublabel.value, query, mark)
     <BaseAvatar v-if="media && !icon" :src="media" size="xs" class="me-3" />
     <BaseIconBox v-else-if="icon && !media" size="sm" shape="rounded" class="me-1">
       <IconTw
-        :icon="icon"
+        :name="icon"
         class="h-4 w-4"
         :class="[props.selected ? 'text-primary-500' : 'text-muted-500']"
       />
@@ -154,7 +154,7 @@ const markedSublabel = useNinjaMark(() => sublabel.value, query, mark)
       :class="[media && 'h-8 w-8', icon && 'h-8 w-8']"
     >
       <slot name="selected-icon">
-        <Icon :name="selectedIcon" class="text-success-500 block h-4 w-4" />
+        <IconTw :name="selectedIcon" class="text-success-500 block h-4 w-4" />
       </slot>
     </div>
   </div>

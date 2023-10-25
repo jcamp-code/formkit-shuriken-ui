@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import IconTw from '../../components/IconTw.vue'
-import AutoTest from './AutoTest.vue'
-import BaseAutocomplete from './BaseAutocomplete.vue'
 
 const props = defineProps({
   context: Object,
