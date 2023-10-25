@@ -12,7 +12,8 @@ function events(e: Event, name1: string, name2?: string) {
   function sendEvent(name: string) {
     const clickHandlerProp = `on${name.charAt(0).toUpperCase()}${name.slice(1)}`
 
-    const handlerFunction = context!.attrs[clickHandlerProp] || context![clickHandlerProp]
+    const handlerFunction =
+      context!.attrs[clickHandlerProp] || context![clickHandlerProp]
     if (handlerFunction && typeof handlerFunction === 'function')
       return handlerFunction(context?.node, e)
   }
@@ -49,7 +50,8 @@ function handleBlur(e: any) {
     :display-value="context?.displayValue"
     :filter-debounce="context?.filterDebounce"
     :placeholder="attrs.placeholder"
-    :portal="context?.portal"
+    :fixed="context?.fixed"
+    :placement="context?.placement"
     dropdown
     :allow-custom="context?.allowCustom ?? false"
     :clearable="context?.clearable"

@@ -41,7 +41,12 @@ const people = ref([
 </script>
 
 <template>
-  <FormKit v-model="formModel" type="form" :actions="false" :incomplete-message="false">
+  <FormKit
+    v-model="formModel"
+    type="form"
+    :actions="false"
+    :incomplete-message="false"
+  >
     <div class="relative py-3 sm:mx-auto sm:max-w-xl">
       <BaseCard shape="curved" class="relative px-4 py-10 sm:p-10 md:mx-0">
         <div class="mx-auto max-w-md">
@@ -55,7 +60,9 @@ const people = ref([
               <BaseHeading as="h3" size="lg" weight="medium">
                 FormKit Tairo / Shuriken Components
               </BaseHeading>
-              <BaseText size="sm" class="text-muted-400">Create a new upcoming event.</BaseText>
+              <BaseText size="sm" class="text-muted-400"
+                >Create a new upcoming event.</BaseText
+              >
             </div>
           </div>
           <div class="divide-y divide-gray-200">
@@ -86,6 +93,7 @@ const people = ref([
                   label="Drop down strings"
                   placeholder="Choose people..."
                   color-focus
+                  fixed
                   shape="curved"
                   icon="ph:users-duotone"
                 />
@@ -96,7 +104,7 @@ const people = ref([
                     label="Drop down Portalled"
                     placeholder="Choose people..."
                     color-focus
-                    portal
+                    fixed
                     shape="curved"
                     icon="ph:users-duotone"
                   />
@@ -118,13 +126,31 @@ const people = ref([
                     label="Auto Complete Portalled"
                     placeholder="Choose people..."
                     color-focus
-                    multiple
-                    portal
+                    fixed
                     shape="curved"
                     icon="ph:users-duotone"
                   ></FormKit>
                 </div>
-                <FormKit type="toggle" name="switch" label="Switch" sublabel="sub label" />
+                <div class="relative h-24 w-48 overflow-hidden">
+                  <FormKit
+                    type="autocomplete"
+                    :options="frameworks"
+                    label="Auto Complete Portalled 2"
+                    placeholder="Choose people..."
+                    color-focus
+                    fixed
+                    shape="curved"
+                    icon="ph:users-duotone"
+                    :displayValue="(i) => i.label"
+                    :properties="{ key: 'value', label: 'label' }"
+                  ></FormKit>
+                </div>
+                <FormKit
+                  type="toggle"
+                  name="switch"
+                  label="Switch"
+                  sublabel="sub label"
+                />
                 <FormKit
                   type="toggle"
                   :thin="true"
@@ -135,8 +161,14 @@ const people = ref([
               </div>
             </div>
             <div class="flex items-center gap-4 pt-4">
-              <BaseButton shape="curved" class="!h-12 w-full">Cancel</BaseButton>
-              <BaseButton type="submit" shape="curved" color="primary" class="!h-12 w-full"
+              <BaseButton shape="curved" class="!h-12 w-full"
+                >Cancel</BaseButton
+              >
+              <BaseButton
+                type="submit"
+                shape="curved"
+                color="primary"
+                class="!h-12 w-full"
                 >Create</BaseButton
               >
             </div>

@@ -59,19 +59,21 @@ const props = withDefaults(
     shape: undefined,
     mark: 'nui-mark',
     selectedIcon: 'lucide:check',
-    value: () => ({}),
-    properties: {
-      //@ts-expect-error properties type mismatch
-      label: 'label',
-      sublabel: 'sublabel',
-      media: 'media',
-      icon: 'icon',
-    },
+    item: undefined,
+    properties: () =>
+      ({
+        label: 'label',
+        sublabel: 'sublabel',
+        media: 'media',
+        icon: 'icon',
+      }) as any,
   },
 )
 
 const appConfig = useAppConfig()
-const shape = computed(() => props.shape ?? appConfig.nui.defaultShapes?.autocompleteItem)
+const shape = computed(
+  () => props.shape ?? appConfig.nui.defaultShapes?.autocompleteItem,
+)
 
 const shapeStyle = {
   straight: '',
@@ -87,8 +89,10 @@ const inputContext = inject('BaseAutocompleteContext', {
 
 const label = computed(() => {
   if (props.item == null || props.properties == null) return
-  if (typeof props.properties.label === 'string') return (props.item as any)[props.properties.label]
-  if (typeof props.properties.label === 'function') return props.properties.label(props.item)
+  if (typeof props.properties.label === 'string')
+    return (props.item as any)[props.properties.label]
+  if (typeof props.properties.label === 'function')
+    return props.properties.label(props.item)
   return
 })
 
@@ -96,21 +100,26 @@ const sublabel = computed(() => {
   if (props.item == null || props.properties == null) return
   if (typeof props.properties.sublabel === 'string')
     return (props.item as any)[props.properties.sublabel]
-  if (typeof props.properties.sublabel === 'function') return props.properties.sublabel(props.item)
+  if (typeof props.properties.sublabel === 'function')
+    return props.properties.sublabel(props.item)
   return
 })
 
 const media = computed(() => {
   if (props.item == null || props.properties == null) return
-  if (typeof props.properties.media === 'string') return (props.item as any)[props.properties.media]
-  if (typeof props.properties.media === 'function') return props.properties.media(props.item)
+  if (typeof props.properties.media === 'string')
+    return (props.item as any)[props.properties.media]
+  if (typeof props.properties.media === 'function')
+    return props.properties.media(props.item)
   return
 })
 
 const icon = computed(() => {
   if (props.item == null || props.properties == null) return
-  if (typeof props.properties.icon === 'string') return (props.item as any)[props.properties.icon]
-  if (typeof props.properties.icon === 'function') return props.properties.icon(props.item)
+  if (typeof props.properties.icon === 'string')
+    return (props.item as any)[props.properties.icon]
+  if (typeof props.properties.icon === 'function')
+    return props.properties.icon(props.item)
   return
 })
 
@@ -123,11 +132,19 @@ const markedSublabel = useNinjaMark(() => sublabel.value, query, mark)
 <template>
   <div
     class="flex cursor-pointer items-center p-2 transition-colors duration-300"
-    :class="[props.active ? 'bg-muted-100 dark:bg-muted-700' : '', shape && shapeStyle[shape]]"
+    :class="[
+      props.active ? 'bg-muted-100 dark:bg-muted-700' : '',
+      shape && shapeStyle[shape],
+    ]"
   >
     <BaseAvatar v-if="media && !icon" :src="media" size="xs" class="me-3" />
-    <BaseIconBox v-else-if="icon && !media" size="sm" shape="rounded" class="me-1">
-      <IconTw
+    <BaseIconBox
+      v-else-if="icon && !media"
+      size="sm"
+      shape="rounded"
+      class="me-1"
+    >
+      <Icon
         :name="icon"
         class="h-4 w-4"
         :class="[props.selected ? 'text-primary-500' : 'text-muted-500']"
@@ -154,7 +171,7 @@ const markedSublabel = useNinjaMark(() => sublabel.value, query, mark)
       :class="[media && 'h-8 w-8', icon && 'h-8 w-8']"
     >
       <slot name="selected-icon">
-        <IconTw :name="selectedIcon" class="text-success-500 block h-4 w-4" />
+        <Icon :name="selectedIcon" class="text-success-500 block h-4 w-4" />
       </slot>
     </div>
   </div>

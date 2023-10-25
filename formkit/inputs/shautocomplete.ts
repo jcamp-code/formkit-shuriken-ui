@@ -19,7 +19,8 @@ export const shautocomplete = createInput(Autocomplete, {
     'filterDebounce',
     'allowCustom',
     'itemComp',
-    'portal',
+    'fixed',
+    'placement',
     'properties',
   ],
 })

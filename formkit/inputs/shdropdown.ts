@@ -17,6 +17,8 @@ export const shdropdown = createInput(Dropdown, {
     'optionLabel',
     'optionValue',
     'strings',
-    'portal',
+    'fixed',
+    'placement',
+    'properties',
   ],
 })

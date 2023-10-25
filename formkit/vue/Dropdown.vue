@@ -10,7 +10,8 @@ function events(e: Event, name1: string, name2?: string) {
   function sendEvent(name: string) {
     const clickHandlerProp = `on${name.charAt(0).toUpperCase()}${name.slice(1)}`
 
-    const handlerFunction = context!.attrs[clickHandlerProp] || context![clickHandlerProp]
+    const handlerFunction =
+      context!.attrs[clickHandlerProp] || context![clickHandlerProp]
     if (handlerFunction && typeof handlerFunction === 'function')
       return handlerFunction(context?.node, e)
   }
@@ -80,7 +81,8 @@ const properties = computed(() => {
     :aria-labelledby="attrs.ariaLabelledby"
     :placeholder="attrs.placeholder"
     :properties="properties"
-    :portal="context?.portal"
+    :fixed="context?.fixed"
+    :placement="context?.placement"
     @update:model-value="handleInput"
     @blur="handleBlur"
   >

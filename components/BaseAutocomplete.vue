@@ -161,9 +161,26 @@ const props = withDefaults(
     allowCustom?: boolean
 
     /**
-     * Portal the dropdown to body
+     * Used a fixed strategy to float the component
      */
-    portal?: boolean
+    fixed?: boolean
+
+    /**
+     * The placement of the component via floating-ui.
+     */
+    placement?:
+      | 'top'
+      | 'top-start'
+      | 'top-end'
+      | 'right'
+      | 'right-start'
+      | 'right-end'
+      | 'bottom'
+      | 'bottom-start'
+      | 'bottom-end'
+      | 'left'
+      | 'left-start'
+      | 'left-end'
 
     /**
      * The properties to use for the value, label, sublabel, media, and icon of the options items.
@@ -233,7 +250,8 @@ const props = withDefaults(
     },
     classes: () => ({}),
     allowCustom: false,
-    portal: false,
+    fixed: false,
+    placement: 'bottom-start',
     properties: undefined,
   },
 )
@@ -369,7 +387,8 @@ function removeItem(item: any) {
 
 function key(item: T) {
   if (props.properties == null) return props.displayValue(item)
-  if (typeof props.properties.key === 'string') return (item as any)[props.properties.key]
+  if (typeof props.properties.key === 'string')
+    return (item as any)[props.properties.key]
   if (typeof props.properties.key === 'function')
     //@ts-expect-error not sure why properties.key ends up undefined
     return props.properties.key(item as any)
@@ -402,12 +421,16 @@ function key(item: T) {
       @hide="query = ''"
       :flip="!props.multiple"
       :offset="5"
-      :portal="props.portal"
-      :adaptive-width="props.portal"
+      :strategy="props.fixed ? 'fixed' : 'absolute'"
+      :placement="props.placement"
+      :adaptive-width="props.fixed"
       :z-index="20"
     >
       <ComboboxLabel
-        v-if="('label' in $slots && !labelFloat) || (props.label && !props.labelFloat)"
+        v-if="
+          ('label' in $slots && !labelFloat) ||
+          (props.label && !props.labelFloat)
+        "
         class="nui-autocomplete-label"
         :class="classes?.label"
       >
@@ -417,13 +440,19 @@ function key(item: T) {
       </ComboboxLabel>
 
       <div v-if="props.multiple" class="nui-autocomplete-multiple">
-        <ul v-if="Array.isArray(value) && value.length > 0" class="nui-autocomplete-multiple-list">
+        <ul
+          v-if="Array.isArray(value) && value.length > 0"
+          class="nui-autocomplete-multiple-list"
+        >
           <li v-for="item in value" :key="String(item)">
             <div class="nui-autocomplete-multiple-list-item">
               {{ props.displayValue(item) }}
               <button type="button" @click="removeItem(item)">
                 <slot name="chip-clear-icon">
-                  <IconTw :name="chipClearIcon" class="nui-autocomplete-multiple-list-item-icon" />
+                  <Icon
+                    :name="chipClearIcon"
+                    class="nui-autocomplete-multiple-list-item-icon"
+                  />
                 </slot>
               </button>
             </div>
@@ -435,24 +464,32 @@ function key(item: T) {
           <ComboboxInput
             class="nui-autocomplete-input"
             :class="classes?.input"
-            :display-value="props.multiple ? undefined : (props.displayValue as any)"
+            :display-value="
+              props.multiple ? undefined : (props.displayValue as any)
+            "
             :placeholder="props.placeholder"
             :disabled="props.disabled"
             @change="query = $event.target.value"
             @keydown="(event: KeyboardEvent) => emits('keydown', event)"
           />
           <ComboboxLabel
-            v-if="('label' in $slots && props.labelFloat) || (props.label && props.labelFloat)"
+            v-if="
+              ('label' in $slots && props.labelFloat) ||
+              (props.label && props.labelFloat)
+            "
             class="nui-label-float"
             :class="props.classes?.label"
           >
-            <slot name="label" v-bind="{ query, filteredItems, pending, items }">
+            <slot
+              name="label"
+              v-bind="{ query, filteredItems, pending, items }"
+            >
               {{ props.label }}
             </slot>
           </ComboboxLabel>
           <div v-if="iconResolved" class="nui-autocomplete-icon">
             <slot name="icon" :icon-name="iconResolved">
-              <IconTw :name="iconResolved" class="nui-autocomplete-icon-inner" />
+              <Icon :name="iconResolved" class="nui-autocomplete-icon-inner" />
             </slot>
           </div>
           <button
@@ -463,7 +500,10 @@ function key(item: T) {
             @click="clear"
           >
             <slot name="clear-icon">
-              <IconTw :name="props.clearIcon" class="nui-autocomplete-clear-inner" />
+              <Icon
+                :name="props.clearIcon"
+                class="nui-autocomplete-clear-inner"
+              />
             </slot>
           </button>
           <ComboboxButton
@@ -472,7 +512,7 @@ function key(item: T) {
             class="nui-autocomplete-clear"
           >
             <slot name="dropdown-icon">
-              <IconTw
+              <Icon
                 :name="props.dropdownIcon"
                 class="nui-autocomplete-clear-inner transition-transform duration-300"
                 :class="[props.classes?.icon, open && 'rotate-180']"
@@ -481,7 +521,10 @@ function key(item: T) {
           </ComboboxButton>
 
           <div v-if="props.loading" class="nui-autocomplete-placeload">
-            <BasePlaceload class="nui-placeload" :class="props.icon && 'ms-6'" />
+            <BasePlaceload
+              class="nui-placeload"
+              :class="props.icon && 'ms-6'"
+            />
           </div>
         </div>
       </FloatReference>
@@ -492,26 +535,23 @@ function key(item: T) {
       >
         {{ props.error }}
       </span>
-      <FloatContent
-        :class="[
-          !props.portal && 'w-full',
-          props.portal && 'nui-autocomplete',
-          props.portal && sizeStyle[props.size],
-          props.portal && contrastStyle[props.contrast],
-          props.portal && shape && shapeStyle[shape],
-        ]"
-      >
+      <FloatContent :class="!props.fixed && 'w-full'">
         <ComboboxOptions
           as="div"
-          :class="{ 'nui-autocomplete-results': filteredItems.length > 0 || !allowCustom }"
-          :unmount="!portal"
+          :class="{
+            'nui-autocomplete-results':
+              filteredItems.length > 0 || !allowCustom,
+          }"
         >
           <!-- Placeholder -->
           <div
             v-if="filteredItems.length === 0 && pending"
             class="nui-autocomplete-results-placeholder"
           >
-            <slot name="pending" v-bind="{ query, filteredItems, pending, items }">
+            <slot
+              name="pending"
+              v-bind="{ query, filteredItems, pending, items }"
+            >
               <span class="nui-autocomplete-results-placeholder-text">
                 {{ props.i18n.pending }}
               </span>
@@ -521,14 +561,20 @@ function key(item: T) {
             v-else-if="filteredItems.length === 0 && !allowCustom"
             class="nui-autocomplete-results-placeholder"
           >
-            <slot name="empty" v-bind="{ query, filteredItems, pending, items }">
+            <slot
+              name="empty"
+              v-bind="{ query, filteredItems, pending, items }"
+            >
               <span class="nui-autocomplete-results-placeholder-text">
                 {{ props.i18n.empty }}
               </span>
             </slot>
           </div>
           <template v-else>
-            <div v-if="'start-item' in $slots" class="nui-autocomplete-results-header">
+            <div
+              v-if="'start-item' in $slots"
+              class="nui-autocomplete-results-header"
+            >
               <slot
                 name="start-item"
                 v-bind="{
@@ -582,7 +628,10 @@ function key(item: T) {
                 />
               </slot>
             </ComboboxOption>
-            <div v-if="'end-item' in $slots" class="nui-autocomplete-results-footer">
+            <div
+              v-if="'end-item' in $slots"
+              class="nui-autocomplete-results-footer"
+            >
               <slot
                 name="end-item"
                 v-bind="{
