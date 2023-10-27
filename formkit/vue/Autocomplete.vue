@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import IconTw from '../../components/IconTw.vue'
-
 const props = defineProps({
   context: Object,
 })
@@ -63,7 +61,7 @@ function handleBlur(e: any) {
       <component :is="context?.itemComp" v-bind="slotProps"></component>
     </template>
     <template v-if="context?.prefixIcon || context?.icon" #icon>
-      <IconTw
+      <Icon
         :name="context?.prefixIcon || context?.icon"
         class="nui-autocomplete-icon-inner"
         @click="(e) => events(e, 'prefixIconClick')"

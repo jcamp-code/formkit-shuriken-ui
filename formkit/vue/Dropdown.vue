@@ -87,7 +87,7 @@ const properties = computed(() => {
     @blur="handleBlur"
   >
     <template v-if="context?.prefixIcon || context?.icon" #icon>
-      <IconTw
+      <Icon
         :name="context?.prefixIcon || context?.icon"
         class="nui-icon-box-inner"
         @click="(e) => events(e, 'prefixIconClick')"

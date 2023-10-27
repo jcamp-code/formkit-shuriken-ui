@@ -40,7 +40,12 @@ const flavors = ['Chocolate', 'Vanilla', 'Strawberry']
 </script>
 
 <template>
-  <FormKit v-model="formModel" type="form" :actions="false" :incomplete-message="false">
+  <FormKit
+    v-model="formModel"
+    type="form"
+    :actions="false"
+    :incomplete-message="false"
+  >
     <div class="relative py-3 sm:mx-auto sm:max-w-xl">
       <BaseCard shape="curved" class="relative px-4 py-10 sm:p-10 md:mx-0">
         <div class="mx-auto max-w-md">
@@ -54,7 +59,9 @@ const flavors = ['Chocolate', 'Vanilla', 'Strawberry']
               <BaseHeading as="h3" size="lg" weight="medium">
                 FormKit Pro Inputs Tailwind Styling Only
               </BaseHeading>
-              <BaseText size="sm" class="text-muted-400">These are only the pro inputs.</BaseText>
+              <BaseText size="sm" class="text-muted-400"
+                >These are only the pro inputs.</BaseText
+              >
             </div>
           </div>
           <div class="divide-y divide-gray-200">
@@ -83,9 +90,9 @@ const flavors = ['Chocolate', 'Vanilla', 'Strawberry']
                   name="date"
                   label="Appointment date"
                   placeholder="Select a date"
-                  calendar-icon="i-[ph-calendar-duotone]"
-                  next-icon="i-[carbon-chevron-right]"
-                  prev-icon="i-[carbon-chevron-left]"
+                  calendar-icon="i-ph-calendar-duotone"
+                  next-icon="i-carbon-chevron-right"
+                  prev-icon="i-carbon-chevron-left"
                   overlay
                 />
                 <FormKit
@@ -94,7 +101,7 @@ const flavors = ['Chocolate', 'Vanilla', 'Strawberry']
                   label="Dropdown"
                   placeholder="pick a framework"
                   :options="frameworks"
-                  prefix-icon="i-[ph/users-duotone]"
+                  prefix-icon="i-ph-users-duotone"
                 />
                 <FormKit
                   type="autocomplete"
@@ -103,15 +110,21 @@ const flavors = ['Chocolate', 'Vanilla', 'Strawberry']
                   multiple
                   name="participants"
                   placeholder="Choose people..."
-                  prefix-icon="i-[ph/users-duotone]"
+                  prefix-icon="ph/users-duotone"
                   validation="required"
                 />
                 <FormKit type="toggle" name="switch" label="Switch" />
               </div>
             </div>
             <div class="flex items-center gap-4 pt-4">
-              <BaseButton shape="curved" class="!h-12 w-full">Cancel</BaseButton>
-              <BaseButton type="submit" shape="curved" color="primary" class="!h-12 w-full"
+              <BaseButton shape="curved" class="!h-12 w-full"
+                >Cancel</BaseButton
+              >
+              <BaseButton
+                type="submit"
+                shape="curved"
+                color="primary"
+                class="!h-12 w-full"
                 >Create</BaseButton
               >
             </div>

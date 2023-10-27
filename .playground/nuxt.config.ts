@@ -4,6 +4,9 @@ export default defineNuxtConfig({
   // extends: ['@shuriken-ui/nuxt'],
   extends: ['..'],
   modules: ['@vueuse/nuxt'],
+  icon: {
+    collections: 'all',
+  },
   experimental: {
     // when using generate, payload js assets included in sw precache manifest
     // but missing on offline, disabling extraction it until fixed

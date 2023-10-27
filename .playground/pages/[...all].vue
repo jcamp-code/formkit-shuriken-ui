@@ -5,7 +5,7 @@ const router = useRouter()
 <template>
   <main class="px-4 py-10 text-center text-teal-700">
     <div class="text-4xl">
-      <div class="i-[carbon/warning] inline-block" />
+      <div class="i-carbon-warning inline-block" />
     </div>
     <div>Not found</div>
     <div>

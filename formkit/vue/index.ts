@@ -1,6 +1,4 @@
-import IconTw from '../../components/IconTw.vue'
 import BaseInputIcons from '../../components/BaseInputIcons.vue'
-
 import Autocomplete from './Autocomplete.vue'
 import Checkbox from './Checkbox.vue'
 import Color from './Color.vue'
@@ -23,6 +21,5 @@ export {
   Switch,
   Text,
   Textarea,
-  IconTw,
   BaseInputIcons,
 }

@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { twMerge } from 'tailwind-merge'
 
-import IconTw from './IconTw.vue'
-
 const props = defineProps<{
   icon?: string
   prefixIcon?: string
@@ -22,10 +20,16 @@ defineExpose({
 })
 
 const suffixButtonClass = computed(() =>
-  twMerge('absolute inset-y-0 right-0 flex items-center pr-3', props?.inputClasses?.suffixButton),
+  twMerge(
+    'absolute inset-y-0 right-0 flex items-center pr-3',
+    props?.inputClasses?.suffixButton,
+  ),
 )
 const suffixIconClass = computed(() =>
-  twMerge('text-muted-400 dark:text-muted-500', props?.inputClasses?.suffixIcon),
+  twMerge(
+    'text-muted-400 dark:text-muted-500',
+    props?.inputClasses?.suffixIcon,
+  ),
 )
 
 function emitSuffixClick(e: Event) {
@@ -35,9 +39,13 @@ function emitSuffixClick(e: Event) {
 </script>
 
 <template>
-  <BaseInput ref="inputRef" :classes="props.inputClasses" :icon="props.prefixIcon || props.icon">
+  <BaseInput
+    ref="inputRef"
+    :classes="props.inputClasses"
+    :icon="props.prefixIcon || props.icon"
+  >
     <template v-if="props.prefixIcon || props.icon" #icon>
-      <IconTw
+      <Icon
         :name="props.prefixIcon || props.icon"
         class="nui-input-icon-inner"
         :class="props.inputClasses?.icon"
@@ -51,7 +59,7 @@ function emitSuffixClick(e: Event) {
         :class="suffixButtonClass"
         @click.prevent="emitSuffixClick"
       >
-        <IconTw :name="props.suffixIcon" :class="suffixIconClass" />
+        <Icon :name="props.suffixIcon" :class="suffixIconClass" />
       </Component>
     </template>
   </BaseInput>

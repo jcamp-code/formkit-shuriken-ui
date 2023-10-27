@@ -53,7 +53,9 @@ const datePickerRef = ref()
     <template #calendar-header="{ day }">
       {{ day[0] }}
     </template>
-    <template #dp-input="{ isMenuOpen, onKeyPress, onInput, onBlur, onEnter, onTab }">
+    <template
+      #dp-input="{ isMenuOpen, onKeyPress, onInput, onBlur, onEnter, onTab }"
+    >
       <BaseInput
         :id="context?.id"
         ref="textRef"
@@ -70,7 +72,7 @@ const datePickerRef = ref()
         @blur="onBlur"
       >
         <template v-if="context?.prefixIcon || context?.icon" #icon>
-          <IconTw
+          <Icon
             :name="context?.prefixIcon || context?.icon"
             class="nui-input-icon-inner"
             :class="context?.inputClasses?.icon"
@@ -81,10 +83,15 @@ const datePickerRef = ref()
           <div
             tabindex="-1"
             class="absolute inset-y-0 right-0 flex cursor-pointer items-center pr-3"
-            @click="(e) => (isMenuOpen ? datePickerRef.closeMenu() : datePickerRef.openMenu())"
+            @click="
+              (e) =>
+                isMenuOpen
+                  ? datePickerRef.closeMenu()
+                  : datePickerRef.openMenu()
+            "
           >
-            <IconTw
-              :icon="context?.suffixIcon ?? 'ph:calendar-duotone'"
+            <Icon
+              :name="context?.suffixIcon ?? 'ph:calendar-duotone'"
               class="text-muted-400 dark:text-muted-500 group-focus-within:!text-primary-500"
             />
           </div>

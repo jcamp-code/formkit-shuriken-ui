@@ -16,6 +16,6 @@ export default defineFormKitConfig({
     ...genesisIcons,
   },
   iconLoader: (iconName: string) => {
-    return `<span class="${iconName} iconTw"></span>`
+    return `<span class="${iconName}"></span>`
   },
 })

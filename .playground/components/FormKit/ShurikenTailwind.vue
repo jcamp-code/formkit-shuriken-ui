@@ -38,7 +38,12 @@ const people = ref([
 </script>
 
 <template>
-  <FormKit v-model="formModel" type="form" :actions="false" :incomplete-message="false">
+  <FormKit
+    v-model="formModel"
+    type="form"
+    :actions="false"
+    :incomplete-message="false"
+  >
     <div class="relative py-3 sm:mx-auto sm:max-w-xl">
       <BaseCard shape="curved" class="relative px-4 py-10 sm:p-10 md:mx-0">
         <div class="mx-auto max-w-md">
@@ -52,7 +57,9 @@ const people = ref([
               <BaseHeading as="h3" size="lg" weight="medium">
                 FormKit Tailwind Styling Only
               </BaseHeading>
-              <BaseText size="sm" class="text-muted-400">Create a new upcoming event.</BaseText>
+              <BaseText size="sm" class="text-muted-400"
+                >Create a new upcoming event.</BaseText
+              >
             </div>
           </div>
           <div class="divide-y divide-gray-200">
@@ -63,7 +70,7 @@ const people = ref([
                   label="Text"
                   name="text"
                   placeholder="Some text placeholder"
-                  prefix-icon="i-[ph/ticket-duotone]"
+                  prefix-icon="i-ph-ticket-duotone"
                   suffix-icon="ph:x"
                   validation="required"
                   color-focus
@@ -79,9 +86,24 @@ const people = ref([
                   rows="5"
                   validation="required"
                 />
-                <FormKit type="tel" label="Telephone" name="tel" placeholder="Phone placeholder" />
-                <FormKit type="email" label="Email" name="email" placeholder="Email placeholder" />
-                <FormKit type="date" label="Date" name="date" placeholder="Date placeholder" />
+                <FormKit
+                  type="tel"
+                  label="Telephone"
+                  name="tel"
+                  placeholder="Phone placeholder"
+                />
+                <FormKit
+                  type="email"
+                  label="Email"
+                  name="email"
+                  placeholder="Email placeholder"
+                />
+                <FormKit
+                  type="date"
+                  label="Date"
+                  name="date"
+                  placeholder="Date placeholder"
+                />
                 <FormKit
                   type="datetimeLocal"
                   label="Date Time Local"
@@ -106,7 +128,12 @@ const people = ref([
                   name="search"
                   placeholder="Search placeholder"
                 />
-                <FormKit type="url" label="Url" name="url" placeholder="Url placeholder" />
+                <FormKit
+                  type="url"
+                  label="Url"
+                  name="url"
+                  placeholder="Url placeholder"
+                />
                 <FormKit
                   type="autocomplete"
                   :options="people"
@@ -165,7 +192,10 @@ const people = ref([
                   <template #label>
                     <span>
                       <span>I accept the</span>
-                      <a href="#" class="text-primary-500 hover:underline focus:underline">
+                      <a
+                        href="#"
+                        class="text-primary-500 hover:underline focus:underline"
+                      >
                         Terms of Service
                       </a>
                     </span>
@@ -177,7 +207,13 @@ const people = ref([
                   v-model="formModel.radio"
                   type="radio"
                   label="Preferred transportation"
-                  :options="['E-Bike', 'E-Scooter', 'Electric car', 'Walking', 'Space tube']"
+                  :options="[
+                    'E-Bike',
+                    'E-Scooter',
+                    'Electric car',
+                    'Walking',
+                    'Space tube',
+                  ]"
                   help="How do you like to get around?"
                 />
               </div>
@@ -192,8 +228,14 @@ const people = ref([
               </div>
             </div>
             <div class="flex items-center gap-4 pt-4">
-              <BaseButton shape="curved" class="!h-12 w-full">Cancel</BaseButton>
-              <BaseButton type="submit" shape="curved" color="primary" class="!h-12 w-full"
+              <BaseButton shape="curved" class="!h-12 w-full"
+                >Cancel</BaseButton
+              >
+              <BaseButton
+                type="submit"
+                shape="curved"
+                color="primary"
+                class="!h-12 w-full"
                 >Create</BaseButton
               >
             </div>
