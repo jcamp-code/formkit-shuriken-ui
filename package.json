@@ -22,7 +22,8 @@
     "build": "nuxt build .playground",
     "generate": "nuxt generate .playground",
     "preview": "nuxt preview .playground",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "release": "release-it"
   },
   "dependencies": {
     "@formkit/addons": "^1.2.2",
@@ -33,22 +34,24 @@
     "@vuepic/vue-datepicker": "^7.2.0",
     "@shuriken-ui/nuxt": "^1.7.3",
     "nuxt-icon-tw": "^0.1.2",
-    "tailwind-merge": "^1.14.0"
+    "tailwind-merge": "^2.0.0"
   },
   "devDependencies": {
-    "@iconify/json": "^2.2.134",
+    "@iconify/json": "^2.2.135",
     "@iconify-json/mdi": "1.1.55",
     "@jcamp/eslint-config": "^1.0.4",
     "@jcamp/tailwindcss-plugin-animate": "^0.2.2",
     "@jcamp/tailwindcss-plugin-icons": "0.6.2",
-    "@nuxt/devtools": "1.0.0-beta.0",
+    "@nuxt/devtools": "1.0.0",
     "@nuxtjs/color-mode": "3.3.0",
-    "@nuxtjs/tailwindcss": "6.8.0",
+    "@nuxtjs/tailwindcss": "6.8.1",
     "@tailwindcss/typography": "0.5.10",
     "@vueuse/nuxt": "10.5.0",
     "eslint": "8.52.0",
-    "nuxt": "3.7.4",
+    "nuxt": "3.8.0",
     "prettier": "3.0.3",
+    "release-it": "^16.2.1",
+    "release-it-changelogen": "^0.0.4",
     "typescript": "5.2.2"
   }
 }
