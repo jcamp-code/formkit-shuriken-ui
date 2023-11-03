@@ -497,9 +497,9 @@ function key(item: T) {
         <div class="nui-autocomplete-outer">
           <ComboboxInput
             class="nui-autocomplete-input"
-            :class="classes?.input"
+            :class="{classes?.input,'mr-8': props.dropdown}"
             :display-value="
-              props.multiple ? undefined : (props.displayValue as any)
+              props.multiple ? undefined : (displayValueResolved as any)
             "
             :placeholder="props.placeholder"
             :disabled="props.disabled"
