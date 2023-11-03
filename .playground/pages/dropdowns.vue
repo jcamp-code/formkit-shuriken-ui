@@ -24,7 +24,7 @@ const people = ref([
 <template>
   <div>
     <BaseThemeToggle></BaseThemeToggle>
-    <div class="grid grid-cols-2 gap-4">
+    <div class="w-64">
       <div>
         <BaseHeading>Comboboxes with string arrays</BaseHeading>
         <BaseAutocomplete
