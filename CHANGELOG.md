@@ -1,6 +1,14 @@
 # Changelog
 
 
+## v0.9.3
+
+[compare changes](https://github.com/jcamp-code/formkit-shuriken-ui/compare/v0.9.2...v0.9.3)
+
+### 🩹 Fixes
+
+- Class mistake ([444f537](https://github.com/jcamp-code/formkit-shuriken-ui/commit/444f537))
+
 ## v0.9.2
 
 [compare changes](https://github.com/jcamp-code/formkit-shuriken-ui/compare/v0.9.1...v0.9.2)
