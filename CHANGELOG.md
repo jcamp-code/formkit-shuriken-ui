@@ -1,6 +1,14 @@
 # Changelog
 
 
+## v0.9.5
+
+[compare changes](https://github.com/jcamp-code/formkit-shuriken-ui/compare/v0.9.4...v0.9.5)
+
+### 🩹 Fixes
+
+- Padding with clearable and dropdown ([2231116](https://github.com/jcamp-code/formkit-shuriken-ui/commit/2231116))
+
 ## v0.9.4
 
 [compare changes](https://github.com/jcamp-code/formkit-shuriken-ui/compare/v0.9.3...v0.9.4)
