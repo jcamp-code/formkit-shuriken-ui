@@ -1,6 +1,14 @@
 # Changelog
 
 
+## v0.9.8
+
+[compare changes](https://github.com/jcamp-code/formkit-shuriken-ui/compare/v0.9.7...v0.9.8)
+
+### 🩹 Fixes
+
+- Clearing non-array sets it to an empty array ([a108d27](https://github.com/jcamp-code/formkit-shuriken-ui/commit/a108d27))
+
 ## v0.9.7
 
 [compare changes](https://github.com/jcamp-code/formkit-shuriken-ui/compare/v0.9.6...v0.9.7)
