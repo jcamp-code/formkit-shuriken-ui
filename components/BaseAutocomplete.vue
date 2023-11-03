@@ -588,7 +588,11 @@ function key(item: T) {
             </slot>
           </div>
           <button
-            v-if="props.clearable && vmodel && vmodel?.length > 0"
+            v-if="
+              props.clearable &&
+              ((Array.isArray(vmodel) && vmodel?.length > 0) ||
+                (!Array.isArray(vmodel) && vmodel != null))
+            "
             type="button"
             tabindex="-1"
             class="nui-autocomplete-clear"
