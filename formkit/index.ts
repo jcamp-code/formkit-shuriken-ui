@@ -5,6 +5,7 @@ import {
   shautocomplete,
   shcheckbox,
   shcolor,
+  shcombobox,
   shdatepicker,
   shdropdown,
   shradio,
@@ -40,6 +41,7 @@ function createInputs(prefix: string = 'sh') {
     [`${prefix}textarea`]: shtextarea,
     [`${prefix}checkbox`]: shcheckbox,
     [`${prefix}autocomplete`]: shautocomplete,
+    [`${prefix}combobox`]: shcombobox,
     [`${prefix}dropdown`]: shdropdown,
     [`${prefix}datepicker`]: shdatepicker,
     [`${prefix}toggle`]: shtoggle,
@@ -58,4 +60,10 @@ function shurikenFormKitConfig(prefix?: string): DefaultConfigOptions {
   }
 }
 
-export { shurikenFormKitConfig, mergeClasses, removeClasses, createInput, sendEvents }
+export {
+  shurikenFormKitConfig,
+  mergeClasses,
+  removeClasses,
+  createInput,
+  sendEvents,
+}

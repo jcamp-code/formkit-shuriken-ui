@@ -1,11 +1,11 @@
 import { createInput } from '../utils'
-import Autocomplete from '../vue/Autocomplete.vue'
+import Combobox from '../vue/Combobox.vue'
 
 /**
  * Input definition for a Shuriken UI Autocomplete.
  * @public
  */
-export const shautocomplete = createInput(Autocomplete, {
+export const shcombobox = createInput(Combobox, {
   props: [
     'colorFocus',
     'shape',
@@ -16,7 +16,6 @@ export const shautocomplete = createInput(Autocomplete, {
     'inputClasses',
     'filterItems',
     'displayValue',
-    'dropdown',
     'filterDebounce',
     'allowCustom',
     'hideCustomPrompt',

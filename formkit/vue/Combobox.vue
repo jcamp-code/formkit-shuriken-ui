@@ -49,12 +49,12 @@ function handleBlur(e: any) {
     :filter-debounce="context?.filterDebounce"
     :placeholder="attrs.placeholder"
     :fixed="context?.fixed"
-    :dropdown="context?.dropdown ?? false"
     :placement="context?.placement"
     :allow-custom="context?.allowCustom ?? false"
     :hide-custom-prompt="context?.hideCustomPrompt ?? false"
     :clearable="context?.clearable"
     :properties="context?.properties"
+    dropdown
     @update:model-value="handleChange"
     @blur="handleBlur"
   >
