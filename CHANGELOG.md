@@ -1,6 +1,14 @@
 # Changelog
 
 
+## v0.9.6
+
+[compare changes](https://github.com/jcamp-code/formkit-shuriken-ui/compare/v0.9.5...v0.9.6)
+
+### 🩹 Fixes
+
+- Visibility of clearable with arrays ([9048ac3](https://github.com/jcamp-code/formkit-shuriken-ui/commit/9048ac3))
+
 ## v0.9.5
 
 [compare changes](https://github.com/jcamp-code/formkit-shuriken-ui/compare/v0.9.4...v0.9.5)
