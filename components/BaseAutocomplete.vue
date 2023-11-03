@@ -436,7 +436,7 @@ watch(debounced, async (value) => {
 })
 
 function clear() {
-  vmodel.value = props.clearValue ?? []
+  vmodel.value = props.clearValue ?? (props.multiple ? [] : null)
 }
 
 const iconResolved = computed(() => {
