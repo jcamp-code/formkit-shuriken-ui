@@ -1,6 +1,14 @@
 # Changelog
 
 
+## v0.9.7
+
+[compare changes](https://github.com/jcamp-code/formkit-shuriken-ui/compare/v0.9.6...v0.9.7)
+
+### 🩹 Fixes
+
+- Accidentally removed dropdown condition ([e8e5e57](https://github.com/jcamp-code/formkit-shuriken-ui/commit/e8e5e57))
+
 ## v0.9.6
 
 [compare changes](https://github.com/jcamp-code/formkit-shuriken-ui/compare/v0.9.5...v0.9.6)
