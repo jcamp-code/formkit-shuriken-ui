@@ -161,7 +161,7 @@ const placementValue = computed(() => {
         :strategy="props.fixed ? 'fixed' : 'absolute'"
         :placement="placementValue"
         :adaptive-width="props.fixed"
-        :z-index="20"
+        :z-index="200"
       >
         <MenuButton as="template">
           <slot name="button" v-bind="{ open, close }">
