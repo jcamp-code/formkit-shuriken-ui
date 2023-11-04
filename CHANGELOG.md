@@ -1,6 +1,10 @@
 # Changelog
 
 
+## v0.9.9
+
+[compare changes](https://github.com/jcamp-code/formkit-shuriken-ui/compare/v0.9.8...v0.9.9)
+
 ## v0.9.8
 
 [compare changes](https://github.com/jcamp-code/formkit-shuriken-ui/compare/v0.9.7...v0.9.8)
