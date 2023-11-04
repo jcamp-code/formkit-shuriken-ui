@@ -4,7 +4,6 @@ const props = defineProps({
 })
 
 const context = props.context
-const attrs = context?.attrs
 
 function handleBlur(e: any) {
   context?.handlers.blur(e.target.value)
@@ -28,7 +27,7 @@ function handleInput(e: any) {
     :classes="context?.inputClasses"
     :autogrow="context?.autogrow"
     :addon="context?.addon"
-    :resize="context?.addon"
+    :resize="context?.resize"
     @input="handleInput"
     @blur="handleBlur"
   />

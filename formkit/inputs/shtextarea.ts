@@ -6,5 +6,13 @@ import Textarea from '../vue/Textarea.vue'
  * @public
  */
 export const shtextarea = createInput(Textarea, {
-  props: ['colorFocus', 'shape', 'autogrow', 'addon', 'resize', 'inputClasses'],
+  props: [
+    'colorFocus',
+    'shape',
+    'autogrow',
+    'addon',
+    'resize',
+    'inputClasses',
+    'rows',
+  ],
 })
