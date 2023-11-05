@@ -31,7 +31,8 @@ function handleBlur(e: any) {
 <template>
   <BaseAutocomplete
     :id="context?.id"
-    v-model.prop="context!._value"
+    v-model="context!._value"
+    v-bind:model-modifiers="{ prop: context?.modelProp ?? true }"
     :multiple="context?.multiple"
     :items="context?.options || attrs?.items"
     :filter-items="context?.filterItems"

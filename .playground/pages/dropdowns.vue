@@ -3,6 +3,7 @@ const formModel = ref({
   participants: null,
   framework: null,
   frameworks: [],
+  frameworkObjs: [],
 })
 
 const frameworks = [
@@ -132,8 +133,9 @@ const people = ref([
           dropdown
           multiple
           :options="frameworks"
-          v-model="formModel.frameworks"
-          label="Formkit: Autocomplete Dropdown No Custom"
+          v-model="formModel.frameworkObjs"
+          :model-prop="true"
+          label="Formkit: Use Objects Autocomplete Dropdown No Custom"
           placeholder="Select a framework"
           clearable
           :properties="{

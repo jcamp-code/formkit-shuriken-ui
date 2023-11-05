@@ -24,5 +24,6 @@ export const shautocomplete = createInput(Autocomplete, {
     'fixed',
     'placement',
     'properties',
+    'modelProp',
   ],
 })
