@@ -1,6 +1,14 @@
 # Changelog
 
 
+## v0.9.10
+
+[compare changes](https://github.com/jcamp-code/formkit-shuriken-ui/compare/v0.9.9...v0.9.10)
+
+### 🚀 Enhancements
+
+- Add option to use prop or object as v-model ([cbe5ad6](https://github.com/jcamp-code/formkit-shuriken-ui/commit/cbe5ad6))
+
 ## v0.9.9
 
 [compare changes](https://github.com/jcamp-code/formkit-shuriken-ui/compare/v0.9.8...v0.9.9)
