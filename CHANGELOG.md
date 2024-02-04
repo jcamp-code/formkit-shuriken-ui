@@ -1,6 +1,14 @@
 # Changelog
 
 
+## v0.9.11
+
+[compare changes](https://github.com/jcamp-code/formkit-shuriken-ui/compare/v0.9.10...v0.9.11)
+
+### 🩹 Fixes
+
+- Added missing loading property ([d5f8275](https://github.com/jcamp-code/formkit-shuriken-ui/commit/d5f8275))
+
 ## v0.9.10
 
 [compare changes](https://github.com/jcamp-code/formkit-shuriken-ui/compare/v0.9.9...v0.9.10)
