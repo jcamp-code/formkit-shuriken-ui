@@ -147,6 +147,7 @@ const people = ref([
           :items="frameworks"
           v-model.prop="formModel.frameworks"
           label="Framework Combobox No Create"
+          placeholder="Select a framework"
           :properties="{
             value: 'value',
             label: 'label',

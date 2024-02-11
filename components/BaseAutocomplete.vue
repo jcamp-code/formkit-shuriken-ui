@@ -315,7 +315,7 @@ defineSlots<{
 }>()
 
 const [modelValue, modelModifiers] = defineModel<T | T[], 'prop'>({
-  set(value) {
+  get(value) {
     if (modelModifiers.prop && props.properties?.value) {
       const attr = props.properties.value
 
