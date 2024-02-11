@@ -33,7 +33,7 @@ function handleInput(e: any) {
     type="color"
     :icon="context?.prefixIcon || context?.icon"
     :suffix-icon="context?.suffixIcon"
-    :shape="context?.shape"
+    :rounded="context?.rounded"
     :color-focus="context?.colorFocus"
     :error="context?.state.validationVisible && !context?.state.valid"
     :classes="classes"

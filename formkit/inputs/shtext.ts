@@ -8,6 +8,6 @@ import Text from '../vue/Text.vue'
  * @public
  */
 export const shtext = createInput(Text, {
-  props: ['colorFocus', 'shape', 'icon', 'inputClasses', 'suffixButton'],
+  props: ['colorFocus', 'rounded', 'icon', 'inputClasses', 'suffixButton'],
   features: [casts],
 })

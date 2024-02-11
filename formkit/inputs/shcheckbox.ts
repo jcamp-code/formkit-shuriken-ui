@@ -8,7 +8,7 @@ import Checkbox from '../vue/Checkbox.vue'
 export const shcheckbox = createInput(
   Checkbox,
   {
-    props: ['options', 'trueValue', 'falseValue', 'optionsLoader', 'shape', 'color'],
+    props: ['options', 'trueValue', 'falseValue', 'optionsLoader', 'rounded', 'color'],
   },
   false
 )

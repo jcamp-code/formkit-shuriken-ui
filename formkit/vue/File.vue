@@ -24,7 +24,7 @@ function handleInput(e: any) {
     :list="attrs.list"
     :style="attrs.style"
     :icon="context?.icon"
-    :shape="context?.shape"
+    :rounded="context?.rounded"
     :error="context?.state.validationVisible && !context?.state.valid"
     :classes="context?.inputClasses"
     :tabindex="attrs.tabindex"

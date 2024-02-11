@@ -8,7 +8,7 @@ import Radio from '../vue/Radio.vue'
  * @public
  */
 export const shradio = createInput(Radio, {
-  props: ['colorFocus', 'shape', 'options'],
+  props: ['colorFocus', 'rounded', 'options'],
   features: [options],
   forceTypeProp: 'radio',
 })
