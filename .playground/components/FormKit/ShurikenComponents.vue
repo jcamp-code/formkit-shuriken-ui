@@ -64,7 +64,14 @@ const frameworks3 = [
   { name: 'Svelte', text: '', valueKey: 'svelte' },
 ]
 
-const frameworks2 = ref(['Javascript', 'Nuxt', 'Vue.js', 'React.js', 'Angular', 'Alpine.js'])
+const frameworks2 = ref([
+  'Javascript',
+  'Nuxt',
+  'Vue.js',
+  'React.js',
+  'Angular',
+  'Alpine.js',
+])
 
 const masks = ref({
   input: 'YYYY-MM-DD',
@@ -85,9 +92,14 @@ const newDate = ref()
 </script>
 
 <template>
-  <FormKit v-model="formModel" type="form" :actions="false" :incomplete-message="false">
+  <FormKit
+    v-model="formModel"
+    type="form"
+    :actions="false"
+    :incomplete-message="false"
+  >
     <div class="relative py-3 sm:mx-auto sm:max-w-xl">
-      <BaseCard shape="curved" class="relative px-4 py-10 sm:p-10 md:mx-0">
+      <BaseCard class="relative px-4 py-10 sm:p-10 md:mx-0">
         <div class="mx-auto max-w-md">
           <div class="flex items-center gap-4">
             <div
@@ -99,7 +111,9 @@ const newDate = ref()
               <BaseHeading as="h3" size="lg" weight="medium">
                 FormKit Tairo / Shuriken Components
               </BaseHeading>
-              <BaseText size="sm" class="text-muted-400">Create a new upcoming event.</BaseText>
+              <BaseText size="sm" class="text-muted-400"
+                >Create a new upcoming event.</BaseText
+              >
             </div>
           </div>
           <div class="divide-y divide-gray-200">
@@ -111,7 +125,6 @@ const newDate = ref()
                   name="text"
                   color-focus
                   placeholder="Some text placeholder"
-                  shape="curved"
                   icon="ph:ticket-duotone"
                   :suffix-icon="formModel.text && 'ph:x'"
                   suffix-button
@@ -127,7 +140,6 @@ const newDate = ref()
                   label="Text"
                   name="text"
                   placeholder="Some text placeholder"
-                  shape="curved"
                   icon="ph:ticket-duotone"
                   :input-classes="{
                     suffixButton: ' group-focus-within:!flex',
@@ -140,7 +152,6 @@ const newDate = ref()
                   label="Text Area"
                   name="textarea"
                   placeholder="Text area placeholder"
-                  shape="curved"
                   rows="5"
                   validation="required"
                 />
@@ -224,7 +235,6 @@ const newDate = ref()
                   multiple
                   name="participants"
                   placeholder="Choose people..."
-                  shape="curved"
                   icon="ph:users-duotone"
                   :input-classes="{
                     input: '!h-11 !ps-11',
@@ -239,7 +249,6 @@ const newDate = ref()
                   label="Color"
                   name="color"
                   placeholder="Pick a color..."
-                  shape="curved"
                   icon="ph:drop-half-duotone"
                 />
                 <datalist id="eventColors">
@@ -262,7 +271,6 @@ const newDate = ref()
                   label="List"
                   name="category"
                   placeholder="Pick a category..."
-                  shape="curved"
                   icon="ph:ticket-duotone"
                 />
                 <datalist id="eventCategories">
@@ -277,16 +285,18 @@ const newDate = ref()
                 <FormKit
                   type="checkbox"
                   label="I accept"
-                  shape="rounded"
                   color="primary"
                   name="agree"
                 />
               </div>
               <div class="col-span-12 sm:col-span-6">
-                <FormKit type="checkbox" shape="rounded" color="primary" name="agree">
+                <FormKit type="checkbox" color="primary" name="agree">
                   <span>
                     <span>I accept the</span>
-                    <a href="#" class="text-primary-500 hover:underline focus:underline">
+                    <a
+                      href="#"
+                      class="text-primary-500 hover:underline focus:underline"
+                    >
                       Terms of Service
                     </a>
                   </span>
@@ -298,7 +308,13 @@ const newDate = ref()
                   type="radio"
                   color="primary"
                   label="Preferred transportation"
-                  :options="['E-Bike', 'E-Scooter', 'Electric car', 'Walking', 'Space tube']"
+                  :options="[
+                    'E-Bike',
+                    'E-Scooter',
+                    'Electric car',
+                    'Walking',
+                    'Space tube',
+                  ]"
                   help="How do you like to get around?"
                 />
               </div>
@@ -313,8 +329,8 @@ const newDate = ref()
               </div>
             </div>
             <div class="flex items-center gap-4 pt-4">
-              <BaseButton shape="curved" class="!h-12 w-full">Cancel</BaseButton>
-              <BaseButton type="submit" shape="curved" color="primary" class="!h-12 w-full"
+              <BaseButton class="!h-12 w-full">Cancel</BaseButton>
+              <BaseButton type="submit" color="primary" class="!h-12 w-full"
                 >Create</BaseButton
               >
             </div>
@@ -354,7 +370,6 @@ const newDate = ref()
           type="autocomplete"
           v-model="selectedFramework"
           label="Dropdown"
-          shape="curved"
           color-focus
           clearable
           allow-custom

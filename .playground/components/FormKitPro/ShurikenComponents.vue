@@ -48,7 +48,7 @@ const people = ref([
     :incomplete-message="false"
   >
     <div class="relative py-3 sm:mx-auto sm:max-w-xl">
-      <BaseCard shape="curved" class="relative px-4 py-10 sm:p-10 md:mx-0">
+      <BaseCard class="relative px-4 py-10 sm:p-10 md:mx-0">
         <div class="mx-auto max-w-md">
           <div class="flex items-center gap-4">
             <div
@@ -78,7 +78,6 @@ const people = ref([
                   type="dropdown"
                   name="dropdown"
                   label="Dropdown"
-                  shape="curved"
                   color-focus
                   placeholder="pick a framework"
                   :items="frameworks"
@@ -94,7 +93,6 @@ const people = ref([
                   placeholder="Choose people..."
                   color-focus
                   fixed
-                  shape="curved"
                   icon="ph:users-duotone"
                 />
                 <div class="h-24 w-48 overflow-hidden">
@@ -105,7 +103,6 @@ const people = ref([
                     placeholder="Choose people..."
                     color-focus
                     fixed
-                    shape="curved"
                     icon="ph:users-duotone"
                   />
                 </div>
@@ -116,7 +113,6 @@ const people = ref([
                   placeholder="Choose people..."
                   color-focus
                   multiple
-                  shape="curved"
                   icon="ph:users-duotone"
                 ></FormKit>
                 <div class="h-24 w-48 overflow-hidden">
@@ -127,7 +123,6 @@ const people = ref([
                     placeholder="Choose people..."
                     color-focus
                     fixed
-                    shape="curved"
                     icon="ph:users-duotone"
                   ></FormKit>
                 </div>
@@ -139,7 +134,6 @@ const people = ref([
                     placeholder="Choose people..."
                     color-focus
                     fixed
-                    shape="curved"
                     icon="ph:users-duotone"
                     :displayValue="(i) => i.label"
                     :properties="{ key: 'value', label: 'label' }"
@@ -161,14 +155,8 @@ const people = ref([
               </div>
             </div>
             <div class="flex items-center gap-4 pt-4">
-              <BaseButton shape="curved" class="!h-12 w-full"
-                >Cancel</BaseButton
-              >
-              <BaseButton
-                type="submit"
-                shape="curved"
-                color="primary"
-                class="!h-12 w-full"
+              <BaseButton class="!h-12 w-full">Cancel</BaseButton>
+              <BaseButton type="submit" color="primary" class="!h-12 w-full"
                 >Create</BaseButton
               >
             </div>

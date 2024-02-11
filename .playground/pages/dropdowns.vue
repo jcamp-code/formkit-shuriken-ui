@@ -2,6 +2,7 @@
 const formModel = ref({
   participants: null,
   framework: null,
+  frameworkObj: null,
   frameworks: [],
   frameworkObjs: [],
 })
@@ -66,8 +67,23 @@ const people = ref([
         <BaseAutocomplete
           dropdown
           :items="frameworks"
+          v-model="formModel.frameworkObj"
+          label="Framework Combobox Allow Create, No Prompt model is obj"
+          placeholder="Select a framework"
+          allow-create
+          hide-create-prompt
+          clearable
+          :properties="{
+            value: 'value',
+            label: 'label',
+          }"
+        />
+
+        <BaseAutocomplete
+          dropdown
+          :items="frameworks"
           v-model.prop="formModel.framework"
-          label="Framework Combobox No Create"
+          label="Framework Combobox No Create model is prop"
           placeholder="Select a framework"
           :properties="{
             value: 'value',
@@ -121,7 +137,7 @@ const people = ref([
           multiple
           :items="frameworks"
           v-model.prop="formModel.frameworks"
-          label="Framework Combobox No Create"
+          label="Tairo AC: Framework Combobox No Create to model.frameworks"
           placeholder="Select a framework"
           :properties="{
             value: 'value',
@@ -133,8 +149,8 @@ const people = ref([
           dropdown
           multiple
           :options="frameworks"
-          v-model.prop="formModel.frameworkObjs"
-          label="Formkit: Use Objects Autocomplete Dropdown No Create"
+          v-model="formModel.frameworkObjs"
+          label="Formkit AC: Use Objects Autocomplete Dropdown No Create to model.frameworkObjs"
           placeholder="Select a framework"
           clearable
           :properties="{
@@ -146,8 +162,18 @@ const people = ref([
           multiple
           :items="frameworks"
           v-model.prop="formModel.frameworks"
-          label="Framework Combobox No Create"
+          label="Tairo Listbox Framework No Create to model.frameworks"
           placeholder="Select a framework"
+          :properties="{
+            value: 'value',
+            label: 'label',
+          }"
+        />
+        <BaseListbox
+          multiple
+          :items="frameworks"
+          v-model="formModel.frameworkObjs"
+          label="Tairo Listbox Framework No Create to model.frameworksObj"
           :properties="{
             value: 'value',
             label: 'label',

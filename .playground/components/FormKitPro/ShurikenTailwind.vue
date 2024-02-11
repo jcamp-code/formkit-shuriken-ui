@@ -47,7 +47,7 @@ const flavors = ['Chocolate', 'Vanilla', 'Strawberry']
     :incomplete-message="false"
   >
     <div class="relative py-3 sm:mx-auto sm:max-w-xl">
-      <BaseCard shape="curved" class="relative px-4 py-10 sm:p-10 md:mx-0">
+      <BaseCard class="relative px-4 py-10 sm:p-10 md:mx-0">
         <div class="mx-auto max-w-md">
           <div class="flex items-center gap-4">
             <div
@@ -117,14 +117,8 @@ const flavors = ['Chocolate', 'Vanilla', 'Strawberry']
               </div>
             </div>
             <div class="flex items-center gap-4 pt-4">
-              <BaseButton shape="curved" class="!h-12 w-full"
-                >Cancel</BaseButton
-              >
-              <BaseButton
-                type="submit"
-                shape="curved"
-                color="primary"
-                class="!h-12 w-full"
+              <BaseButton class="!h-12 w-full">Cancel</BaseButton>
+              <BaseButton type="submit" color="primary" class="!h-12 w-full"
                 >Create</BaseButton
               >
             </div>
