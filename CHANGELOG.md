@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v1.0.0
+
+[compare changes](https://github.com/jcamp-code/formkit-shuriken-ui/compare/v0.9.11...v1.0.0)
+
+### 🚀 Enhancements
+
+- ⚠️  Update to @shuriken-ui/nuxt v2.0 ([#3](https://github.com/jcamp-code/formkit-shuriken-ui/pull/3))
+
+#### ⚠️ Breaking Changes
+
+- ⚠️  Update to @shuriken-ui/nuxt v2.0 ([#3](https://github.com/jcamp-code/formkit-shuriken-ui/pull/3))
+
 ## v0.9.11
 
 [compare changes](https://github.com/jcamp-code/formkit-shuriken-ui/compare/v0.9.10...v0.9.11)
