@@ -73,7 +73,7 @@ const properties = computed(() => {
     :readonly="attrs._readonly ?? false"
     :style="attrs.style"
     :icon="context?.prefixIcon || context?.icon"
-    :shape="context?.shape"
+    :rounded="context?.rounded"
     :error="context?.state.validationVisible && !context?.state.valid"
     :classes="context?.inputClasses"
     :tabindex="attrs.tabindex"

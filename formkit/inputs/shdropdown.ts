@@ -8,7 +8,7 @@ import Dropdown from '../vue/Dropdown.vue'
 export const shdropdown = createInput(Dropdown, {
   props: [
     'colorFocus',
-    'shape',
+    'rounded',
     'icon',
     'clearable',
     'options',

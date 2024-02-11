@@ -6,5 +6,5 @@ import DatePicker from '../vue/DatePicker.vue'
  * @public
  */
 export const shdatepicker = createInput(DatePicker, {
-  props: ['colorFocus', 'shape', 'icon', 'inputClasses'],
+  props: ['colorFocus', 'rounded', 'icon', 'inputClasses'],
 })

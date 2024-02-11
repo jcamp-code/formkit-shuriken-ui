@@ -33,7 +33,7 @@
 //     messages(message('$message.value')),
 //   ),
 //   type: 'input',
-//   props: ['colorFocus', 'shape', 'icon'],
+//   props: ['colorFocus', 'rounded', 'icon'],
 //   features: [casts],
 //   schemaMemoKey: `${Math.random()}`,
 // }

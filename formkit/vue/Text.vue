@@ -29,7 +29,7 @@ function handleInput(e: any) {
     :icon="context?.prefixIcon || context?.icon"
     :suffix-icon="context?.suffixIcon"
     :suffix-button="context?.suffixButton"
-    :shape="context?.shape"
+    :rounded="context?.rounded"
     :color-focus="context?.colorFocus ?? true"
     :error="context?.state.validationVisible && !context?.state.valid"
     :input-classes="context?.inputClasses"

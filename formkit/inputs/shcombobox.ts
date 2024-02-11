@@ -8,7 +8,7 @@ import Combobox from '../vue/Combobox.vue'
 export const shcombobox = createInput(Combobox, {
   props: [
     'colorFocus',
-    'shape',
+    'rounded',
     'icon',
     'clearable',
     'options',
@@ -17,8 +17,8 @@ export const shcombobox = createInput(Combobox, {
     'filterItems',
     'displayValue',
     'filterDebounce',
-    'allowCustom',
-    'hideCustomPrompt',
+    'allowCreate',
+    'hideCreatePrompt',
     'itemComp',
     'fixed',
     'placement',

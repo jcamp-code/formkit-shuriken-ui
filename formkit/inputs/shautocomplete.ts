@@ -8,7 +8,7 @@ import Autocomplete from '../vue/Autocomplete.vue'
 export const shautocomplete = createInput(Autocomplete, {
   props: [
     'colorFocus',
-    'shape',
+    'rounded',
     'icon',
     'clearable',
     'options',
@@ -18,8 +18,8 @@ export const shautocomplete = createInput(Autocomplete, {
     'displayValue',
     'dropdown',
     'filterDebounce',
-    'allowCustom',
-    'hideCustomPrompt',
+    'allowCreate',
+    'hideCreatePrompt',
     'itemComp',
     'fixed',
     'placement',

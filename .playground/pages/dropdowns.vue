@@ -32,24 +32,24 @@ const people = ref([
           dropdown
           :items="people"
           v-model.prop="formModel.participants"
-          label="Framework Combobox No Custom"
+          label="Framework Combobox No Create"
           placeholder="Select participants"
         />
         <BaseAutocomplete
           dropdown
           :items="people"
           v-model.prop="formModel.participants"
-          label="Framework Combobox Custom"
-          allow-custom
+          label="Framework Combobox Create"
+          allow-create
           placeholder="Select participants"
         />
         <BaseAutocomplete
           dropdown
           :items="people"
           v-model.prop="formModel.participants"
-          label="Framework Combobox Custom, Hidden Prompt"
-          allow-custom
-          hide-custom-prompt
+          label="Framework Combobox Create, Hidden Prompt"
+          allow-create
+          hide-create-prompt
           placeholder="Select participants"
         />
         <FormKit
@@ -57,9 +57,9 @@ const people = ref([
           dropdown
           :options="people"
           v-model.prop="formModel.participants"
-          label="Formkit: Framework Combobox Custom, Hidden Prompt"
-          allow-custom
-          hide-custom-prompt
+          label="Formkit: Framework Combobox Create, Hidden Prompt"
+          allow-create
+          hide-create-prompt
           placeholder="Select participants"
         />
         <BaseHeading>Comboboxes with object arrays</BaseHeading>
@@ -67,7 +67,7 @@ const people = ref([
           dropdown
           :items="frameworks"
           v-model.prop="formModel.framework"
-          label="Framework Combobox No Custom"
+          label="Framework Combobox No Create"
           placeholder="Select a framework"
           :properties="{
             value: 'value',
@@ -78,9 +78,9 @@ const people = ref([
           dropdown
           :items="frameworks"
           v-model.prop="formModel.framework"
-          label="Framework Combobox Allow Custom"
+          label="Framework Combobox Allow Create"
           placeholder="Select a framework"
-          allow-custom
+          allow-create
           :properties="{
             value: 'value',
             label: 'label',
@@ -90,10 +90,10 @@ const people = ref([
           dropdown
           :items="frameworks"
           v-model.prop="formModel.framework"
-          label="Framework Combobox Allow Custom, No Prompt"
+          label="Framework Combobox Allow Create, No Prompt"
           placeholder="Select a framework"
-          allow-custom
-          hide-custom-prompt
+          allow-create
+          hide-create-prompt
           clearable
           :properties="{
             value: 'value',
@@ -104,10 +104,10 @@ const people = ref([
           type="combobox"
           :options="frameworks"
           v-model.prop="formModel.framework"
-          label="FormKit: Framework Combobox Allow Custom, No Prompt"
+          label="FormKit: Framework Combobox Allow Create, No Prompt"
           placeholder="Select a framework"
-          allow-custom
-          hide-custom-prompt
+          allow-create
+          hide-create-prompt
           :properties="{
             value: 'value',
             label: 'label',
@@ -121,7 +121,7 @@ const people = ref([
           multiple
           :items="frameworks"
           v-model.prop="formModel.frameworks"
-          label="Framework Combobox No Custom"
+          label="Framework Combobox No Create"
           placeholder="Select a framework"
           :properties="{
             value: 'value',
@@ -133,9 +133,8 @@ const people = ref([
           dropdown
           multiple
           :options="frameworks"
-          v-model="formModel.frameworkObjs"
-          :model-prop="true"
-          label="Formkit: Use Objects Autocomplete Dropdown No Custom"
+          v-model.prop="formModel.frameworkObjs"
+          label="Formkit: Use Objects Autocomplete Dropdown No Create"
           placeholder="Select a framework"
           clearable
           :properties="{
@@ -147,8 +146,7 @@ const people = ref([
           multiple
           :items="frameworks"
           v-model.prop="formModel.frameworks"
-          label="Framework Combobox No Custom"
-          placeholder="Select a framework"
+          label="Framework Combobox No Create"
           :properties="{
             value: 'value',
             label: 'label',

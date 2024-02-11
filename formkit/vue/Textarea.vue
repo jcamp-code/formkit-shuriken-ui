@@ -22,7 +22,7 @@ function handleInput(e: any) {
     type="textarea"
     :color-focus="context?.colorFocus ?? true"
     :rows="context?.rows"
-    :shape="context?.shape"
+    :rounded="context?.rounded"
     :error="context?.state.validationVisible && !context?.state.valid"
     :classes="context?.inputClasses"
     :autogrow="context?.autogrow"
