@@ -313,7 +313,7 @@ defineSlots<{
   'clear-icon'(): any
   'dropdown-icon'(): any
 }>()
-// const [modelValue, modelModifiers] = defineModel<T | T[], 'prop'>()
+
 const [modelValue, modelModifiers] = defineModel<T | T[], 'prop'>({
   get(value) {
     if (!props.multiple && modelModifiers.prop && props.properties?.value) {
