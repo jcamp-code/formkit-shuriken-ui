@@ -38,7 +38,8 @@ const shurikenUpdates = {
     label: 'nui-label w-full pb-1 text-[0.825rem]',
     legend: 'text-sm text-muted-400 font-normal',
     messages: '-mt-4',
-    message: 'text-danger-600 mt-1 block font-sans text-xs font-medium leading-none bg-transparent',
+    message:
+      'text-danger-600 mt-1 block font-sans text-xs font-medium leading-none bg-transparent',
     prefixIcon:
       'text-muted-400 w-10 flex items-center justify-center self-stretch grow-0 shrink-0 [&>svg]:w-full [&>svg]:max-w-[1.15em] [&>svg]:max-h-[1.15em] [&>svg]:m-auto',
     suffixIcon:
@@ -54,7 +55,7 @@ const shurikenUpdates = {
     wrapper: 'text-muted-400 ms-1 select-none font-sans text-sm',
   },
   'family:button': {
-    input: `$reset nui-button nui-button-medium nui-button-rounded nui-button-solid nui-button-primary`,
+    input: `$reset nui-button nui-button-md nui-button-rounded-md nui-button-solid nui-button-primary`,
   },
 
   'family:dropdown': {
@@ -101,7 +102,8 @@ const shurikenUpdates = {
       aria-selected:dark:!text-muted-100 aria-selected:!text-muted-800
       aria-selected:bg-transparent data-[is-active="true"]:aria-selected:dark:bg-muted-700
       `,
-    selectedIcon: 'block absolute top-1/2 left-2 w-3 -translate-y-1/2 text-success-500',
+    selectedIcon:
+      'block absolute top-1/2 left-2 w-3 -translate-y-1/2 text-success-500',
   },
   // native
   color: { input: 'appearance-none p-2 mr-2' },

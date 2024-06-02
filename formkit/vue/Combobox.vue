@@ -54,6 +54,7 @@ function handleBlur(e: any) {
     :hide-create-prompt="context?.hideCreatePrompt ?? false"
     :clearable="context?.clearable"
     :properties="context?.properties"
+    :colorFocus="context?.colorFocus"
     dropdown
     @update:model-value="handleChange"
     @blur="handleBlur"
